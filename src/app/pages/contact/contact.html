@@ -1,0 +1,33 @@
+<section class="contact section">
+  <div class="container contact__grid">
+    <header class="contact__intro" appReveal="up">
+      <span class="section__label">Contacto</span>
+      <h1 class="section__title contact__title">Hablemos de tu próximo equipo.</h1>
+      <p class="section__lead">
+        Cotizaciones, disponibilidad y asesoría para elegir la máquina o herramienta correcta.
+      </p>
+    </header>
+
+    <div class="contact__cards">
+      <article class="contact__card" appReveal="up" [revealDelay]="80">
+        <p class="contact__label">WhatsApp y llamadas</p>
+        <a class="contact__value" [href]="'tel:+57' + phone.replaceAll(' ', '')">{{ phone }}</a>
+        <a class="btn btn--primary contact__btn" [href]="whatsapp" target="_blank" rel="noopener noreferrer">
+          Abrir WhatsApp
+        </a>
+      </article>
+
+      <article class="contact__card" appReveal="up" [revealDelay]="160">
+        <p class="contact__label">Correo</p>
+        <a class="contact__value" [href]="'mailto:' + email">{{ email }}</a>
+        <a class="btn btn--ghost contact__btn" [href]="'mailto:' + email">Enviar correo</a>
+      </article>
+
+      <article class="contact__card" appReveal="up" [revealDelay]="240">
+        <p class="contact__label">Ubicación</p>
+        <p class="contact__value">{{ address }}</p>
+        <p class="contact__note">Atención comercial para talleres en Bogotá y Colombia.</p>
+      </article>
+    </div>
+  </div>
+</section>

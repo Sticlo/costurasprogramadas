@@ -1,0 +1,41 @@
+.benefits {
+  background: linear-gradient(180deg, transparent, rgba(235, 231, 225, 0.65), transparent);
+}
+
+.benefits__intro {
+  max-width: 34rem;
+  margin-bottom: var(--space-5);
+}
+
+.benefits__list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.5rem, 4vw, 2.5rem);
+  border-top: 1px solid var(--color-line);
+  padding-top: var(--space-5);
+}
+
+.benefits__index {
+  display: block;
+  margin-bottom: 0.85rem;
+  color: var(--color-silver);
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-style: italic;
+}
+
+.benefits__name {
+  font-size: clamp(1.4rem, 2vw, 1.85rem);
+}
+
+.benefits__text {
+  margin-top: 0.75rem;
+  color: var(--color-muted);
+  max-width: 28ch;
+}
+
+@media (max-width: 860px) {
+  .benefits__list {
+    grid-template-columns: 1fr;
+  }
+}

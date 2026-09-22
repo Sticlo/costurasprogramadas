@@ -1,0 +1,33 @@
+<section class="featured section" id="productos" aria-labelledby="featured-title">
+  <div class="container">
+    <header class="featured__intro" appReveal="up">
+      <span class="section__label">Destacados</span>
+      <h2 class="section__title" id="featured-title">Productos para subir el ritmo del taller.</h2>
+      <p class="section__lead">
+        Maquinaria industrial y herramientas de corte listas para producción diaria.
+      </p>
+    </header>
+
+    <ul class="featured__grid">
+      @for (product of products; track product.slug; let i = $index) {
+        <li class="featured__card" appReveal="up" [revealDelay]="i * 90">
+          <a class="featured__link" [routerLink]="['/catalogo', product.slug]">
+            <div class="featured__media">
+              <img [src]="product.image" [alt]="product.name" width="640" height="480" />
+            </div>
+            <div class="featured__body">
+              <p class="featured__category">{{ product.categoryLabel }}</p>
+              <h3 class="featured__name">{{ product.name }}</h3>
+              <p class="featured__summary">{{ product.summary }}</p>
+              <p class="featured__price">{{ product.priceLabel }}</p>
+            </div>
+          </a>
+        </li>
+      }
+    </ul>
+
+    <div class="featured__cta" appReveal="fade">
+      <a class="btn btn--ghost" routerLink="/catalogo">Ver catálogo completo</a>
+    </div>
+  </div>
+</section>

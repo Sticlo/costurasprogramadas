@@ -1,0 +1,18 @@
+<section class="benefits section" aria-labelledby="benefits-title">
+  <div class="container">
+    <header class="benefits__intro" appReveal="up">
+      <span class="section__label">Por qué nosotros</span>
+      <h2 class="section__title" id="benefits-title">Venta con criterio, no solo catálogo.</h2>
+    </header>
+
+    <ul class="benefits__list">
+      @for (item of items; track item.title; let i = $index) {
+        <li class="benefits__item" appReveal="up" [revealDelay]="i * 100">
+          <span class="benefits__index">0{{ i + 1 }}</span>
+          <h3 class="benefits__name">{{ item.title }}</h3>
+          <p class="benefits__text">{{ item.text }}</p>
+        </li>
+      }
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,219 @@
+.header {
+  --nav-gold: #c4a06e;
+  --nav-red: #9b1528;
+
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 40;
+  height: 4.75rem;
+  border-bottom: 1px solid transparent;
+  background: transparent;
+  color: var(--color-ink);
+  transition:
+    background-color 0.4s var(--ease-out),
+    border-color 0.4s var(--ease-out),
+    color 0.4s var(--ease-out),
+    backdrop-filter 0.4s var(--ease-out);
+}
+
+.header--on-hero {
+  color: #fff;
+}
+
+.header--scrolled,
+.header--open {
+  border-bottom-color: rgba(17, 17, 17, 0.08);
+  background: rgba(247, 245, 242, 0.94);
+  backdrop-filter: blur(14px);
+  color: var(--color-ink);
+}
+
+.header--on-hero.header--scrolled {
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+  background: rgba(11, 11, 12, 0.9);
+  color: #fff;
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  height: 100%;
+  width: min(100% - 5rem, 72rem);
+  margin-inline: auto;
+  padding-inline: clamp(0.5rem, 2vw, 1.5rem);
+}
+
+.header__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  z-index: 2;
+  flex-shrink: 0;
+}
+
+.header__mark {
+  display: grid;
+  place-items: center;
+  color: var(--nav-gold);
+}
+
+.header--scrolled:not(.header--on-hero) .header__mark {
+  color: var(--color-accent);
+}
+
+.header__wordmark {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.header__link {
+  position: relative;
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: inherit;
+  opacity: 0.85;
+  white-space: nowrap;
+  transition:
+    color 0.3s var(--ease-out),
+    opacity 0.3s var(--ease-out);
+}
+
+.header--on-hero .header__link {
+  color: rgba(255, 255, 255, 0.88);
+  opacity: 1;
+}
+
+.header--on-hero .header__link.is-active,
+.header--on-hero .header__link:hover {
+  color: var(--nav-gold);
+}
+
+.header__link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -0.4rem;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s var(--ease-out);
+}
+
+.header__link:hover::after,
+.header__link.is-active::after {
+  transform: scaleX(1);
+}
+
+.header__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.55rem;
+  padding: 0.65rem 1.15rem;
+  border-radius: 4px;
+  background: var(--nav-red);
+  color: #fff;
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition:
+    background-color 0.3s var(--ease-out),
+    transform 0.3s var(--ease-out);
+}
+
+.header__cta:hover {
+  background: #b01830;
+  transform: translateY(-1px);
+}
+
+.header__toggle {
+  display: none;
+  position: relative;
+  z-index: 2;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+}
+
+.header__toggle span {
+  display: block;
+  width: 1.35rem;
+  height: 1px;
+  margin: 0.35rem auto;
+  background: currentColor;
+  transition: transform 0.35s var(--ease-out);
+}
+
+.header--open .header__toggle span:first-child {
+  transform: translateY(0.35rem) rotate(45deg);
+}
+
+.header--open .header__toggle span:last-child {
+  transform: translateY(-0.4rem) rotate(-45deg);
+}
+
+@media (max-width: 900px) {
+  .header__toggle {
+    display: block;
+  }
+
+  .header__nav {
+    position: fixed;
+    inset: 0;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.6rem;
+    background: rgba(11, 11, 12, 0.98);
+    color: #fff;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+      opacity 0.35s var(--ease-out),
+      visibility 0.35s var(--ease-out);
+  }
+
+  .header:not(.header--on-hero) .header__nav {
+    background: rgba(247, 245, 242, 0.98);
+    color: var(--color-ink);
+  }
+
+  .header__nav--open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .header__link {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .header__wordmark {
+    max-width: 9rem;
+    white-space: normal;
+    line-height: 1.25;
+  }
+}

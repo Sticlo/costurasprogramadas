@@ -1,0 +1,188 @@
+.fab {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 50;
+  display: grid;
+  justify-items: end;
+  gap: 0.85rem;
+  pointer-events: none;
+}
+
+.fab > * {
+  pointer-events: auto;
+}
+
+.fab__stack {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.fab__btn {
+  display: grid;
+  place-items: center;
+  width: 3.4rem;
+  height: 3.4rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.28);
+  transition:
+    transform 0.3s var(--ease-out),
+    box-shadow 0.3s var(--ease-out),
+    filter 0.3s var(--ease-out);
+}
+
+.fab__btn:hover {
+  transform: translateY(-2px) scale(1.04);
+  filter: brightness(1.06);
+}
+
+.fab__icon {
+  display: grid;
+  place-items: center;
+}
+
+.fab__label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.fab__btn--wa {
+  background: linear-gradient(145deg, #25d366, #128c7e);
+}
+
+.fab__btn--ai {
+  background: linear-gradient(145deg, #9b1528, #6f0f1d);
+  box-shadow:
+    0 0 22px rgba(155, 21, 40, 0.35),
+    0 14px 36px rgba(0, 0, 0, 0.28);
+}
+
+.fab__panel {
+  width: min(calc(100vw - 2.5rem), 22rem);
+  padding: 1.15rem 1.15rem 1.2rem;
+  border: 1px solid rgba(196, 160, 110, 0.28);
+  border-radius: 16px;
+  background: rgba(14, 13, 15, 0.96);
+  color: #f4efe6;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(16px);
+  animation: fab-rise 0.35s var(--ease-out) both;
+}
+
+.fab__panel-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.fab__panel-kicker {
+  margin: 0;
+  color: #c4a06e;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.fab__panel-title {
+  margin: 0.25rem 0 0;
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.fab__panel-close {
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  color: #f4efe6;
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.fab__panel-lead {
+  margin: 0.9rem 0 1rem;
+  color: rgba(214, 203, 186, 0.88);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.fab__prompts {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fab__prompt {
+  width: 100%;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #f4efe6;
+  font: inherit;
+  font-size: 0.86rem;
+  text-align: left;
+  line-height: 1.4;
+  cursor: pointer;
+  transition:
+    border-color 0.25s var(--ease-out),
+    background-color 0.25s var(--ease-out);
+}
+
+.fab__prompt:hover {
+  border-color: rgba(196, 160, 110, 0.45);
+  background: rgba(196, 160, 110, 0.1);
+}
+
+.fab__panel-cta {
+  display: inline-flex;
+  margin-top: 1rem;
+  color: #c4a06e;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+@keyframes fab-rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .fab {
+    right: 0.85rem;
+    bottom: 0.85rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fab__panel,
+  .fab__btn {
+    animation: none;
+    transition: none;
+  }
+}

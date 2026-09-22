@@ -1,0 +1,42 @@
+<section class="catalog section">
+  <div class="container">
+    <header class="catalog__intro" appReveal="up">
+      <span class="section__label">Catálogo</span>
+      <h1 class="section__title catalog__title">Todo lo que el taller necesita.</h1>
+      <p class="section__lead">
+        Filtra por categoría y solicita cotización directa por WhatsApp o correo.
+      </p>
+    </header>
+
+    <div class="catalog__filters" appReveal="fade" role="group" aria-label="Filtrar catálogo">
+      @for (filter of filters; track filter.id) {
+        <button
+          type="button"
+          class="catalog__chip"
+          [class.is-active]="selected() === filter.id"
+          (click)="selectFilter(filter.id)"
+        >
+          {{ filter.label }}
+        </button>
+      }
+    </div>
+
+    <ul class="catalog__grid">
+      @for (product of products(); track product.slug; let i = $index) {
+        <li class="catalog__card" appReveal="up" [revealDelay]="(i % 4) * 70">
+          <a [routerLink]="['/catalogo', product.slug]" class="catalog__link">
+            <div class="catalog__media">
+              <img [src]="product.image" [alt]="product.name" width="640" height="480" />
+            </div>
+            <div class="catalog__body">
+              <p class="catalog__category">{{ product.categoryLabel }}</p>
+              <h2 class="catalog__name">{{ product.name }}</h2>
+              <p class="catalog__summary">{{ product.summary }}</p>
+              <p class="catalog__price">{{ product.priceLabel }}</p>
+            </div>
+          </a>
+        </li>
+      }
+    </ul>
+  </div>
+</section>

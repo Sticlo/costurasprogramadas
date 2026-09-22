@@ -1,0 +1,32 @@
+<footer class="footer">
+  <div class="footer__top container">
+    <div class="footer__brand">
+      <p class="footer__name">Costuras Programadas</p>
+      <p class="footer__tagline">
+        Maquinaria y herramientas de confección con asesoría cercana en Colombia.
+      </p>
+    </div>
+
+    <div class="footer__contact">
+      <p class="footer__label">Contacto comercial</p>
+      <p class="footer__line">{{ address }}</p>
+      <a class="footer__mail" [href]="'tel:+57' + phone.replaceAll(' ', '')">{{ phone }}</a>
+      <a class="footer__mail" [href]="'mailto:' + email">{{ email }}</a>
+      <div class="footer__actions">
+        <a class="btn btn--primary" [href]="whatsapp" target="_blank" rel="noopener noreferrer">
+          WhatsApp
+        </a>
+        <a class="btn btn--ghost footer__ghost" routerLink="/catalogo">Catálogo</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer__bottom container">
+    <p>© {{ year }} Costuras Programadas</p>
+    <nav class="footer__nav" aria-label="Pie">
+      <a routerLink="/">Inicio</a>
+      <a routerLink="/catalogo">Catálogo</a>
+      <a routerLink="/contacto">Contacto</a>
+    </nav>
+  </div>
+</footer>

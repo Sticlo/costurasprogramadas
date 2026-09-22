@@ -1,0 +1,52 @@
+<section class="detail section">
+  <div class="container">
+    @if (product(); as item) {
+      <nav class="detail__crumbs" aria-label="Miga de pan" appReveal="fade">
+        <a routerLink="/">Inicio</a>
+        <span>/</span>
+        <a routerLink="/catalogo">Catálogo</a>
+        <span>/</span>
+        <span>{{ item.name }}</span>
+      </nav>
+
+      <div class="detail__grid">
+        <div class="detail__media" appReveal="scale">
+          <img [src]="item.image" [alt]="item.name" width="900" height="700" />
+        </div>
+
+        <div class="detail__copy" appReveal="up">
+          <p class="detail__category">{{ item.categoryLabel }}</p>
+          <h1 class="detail__title">{{ item.name }}</h1>
+          <p class="detail__price">{{ item.priceLabel }}</p>
+          <p class="detail__desc">{{ item.description }}</p>
+
+          <ul class="detail__specs">
+            @for (spec of item.specs; track spec) {
+              <li>{{ spec }}</li>
+            }
+          </ul>
+
+          <div class="detail__actions">
+            <a
+              class="btn btn--primary"
+              [href]="whatsappHref()"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Cotizar por WhatsApp
+            </a>
+            <a class="btn btn--ghost" [href]="'mailto:' + email + '?subject=Consulta: ' + item.name">
+              Escribir por correo
+            </a>
+          </div>
+        </div>
+      </div>
+    } @else {
+      <div class="detail__empty" appReveal="up">
+        <h1>Producto no encontrado</h1>
+        <p>Puede que el enlace haya cambiado. Revisa el catálogo completo.</p>
+        <a class="btn btn--primary" routerLink="/catalogo">Volver al catálogo</a>
+      </div>
+    }
+  </div>
+</section>

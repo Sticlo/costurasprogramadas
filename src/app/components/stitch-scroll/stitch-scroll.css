@@ -1,0 +1,273 @@
+:host {
+  --stitch-progress: 0;
+  --needle-x: 12%;
+  --needle-bob: 0px;
+  --fabric-shift: 0px;
+  display: block;
+  height: 190svh;
+  background: #0b0b0c;
+}
+
+.stitch {
+  height: 100%;
+}
+
+.stitch__sticky {
+  position: sticky;
+  top: 0;
+  display: grid;
+  place-items: center;
+  height: 100svh;
+  overflow: hidden;
+  color: #f5f0e8;
+  background:
+    radial-gradient(circle at 50% 48%, rgba(155, 21, 40, 0.12), transparent 32%),
+    linear-gradient(180deg, #0b0b0c, #111013);
+}
+
+.stitch__sticky::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(196, 160, 110, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(196, 160, 110, 0.035) 1px, transparent 1px);
+  background-size: 4rem 4rem;
+  mask-image: linear-gradient(90deg, transparent, #000 22%, #000 78%, transparent);
+}
+
+.stitch__fabric {
+  position: absolute;
+  inset: 34% -4% auto;
+  height: 18rem;
+  overflow: hidden;
+  transform: translateX(var(--fabric-shift)) rotate(-1.5deg);
+  background:
+    linear-gradient(110deg, rgba(255, 255, 255, 0.025), transparent 30%),
+    repeating-linear-gradient(90deg, #211c1f 0 2px, #1b171a 2px 5px);
+  border-block: 1px solid rgba(196, 160, 110, 0.13);
+  box-shadow: 0 2.5rem 5rem rgba(0, 0, 0, 0.35);
+  transition: transform 80ms linear;
+}
+
+.stitch__grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.32;
+  background:
+    repeating-linear-gradient(4deg, transparent 0 4px, rgba(255, 255, 255, 0.025) 5px 6px),
+    repeating-linear-gradient(87deg, transparent 0 7px, rgba(196, 160, 110, 0.03) 8px 9px);
+}
+
+.stitch__seam {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.stitch__guide,
+.stitch__thread,
+.stitch__mask {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+}
+
+.stitch__guide {
+  stroke: rgba(196, 160, 110, 0.14);
+  stroke-width: 1;
+}
+
+.stitch__thread {
+  stroke: #d5b47e;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 9 13;
+  filter: drop-shadow(0 0 4px rgba(213, 180, 126, 0.45));
+}
+
+.stitch__mask {
+  stroke: #fff;
+  stroke-width: 18;
+  stroke-dasharray: 1;
+  stroke-dashoffset: calc(1 - var(--stitch-progress));
+}
+
+.stitch__needle {
+  position: absolute;
+  z-index: 3;
+  left: var(--needle-x);
+  top: 3.2rem;
+  width: 4.6rem;
+  height: 10rem;
+  transform: translate(-50%, var(--needle-bob));
+  transition:
+    left 80ms linear,
+    transform 45ms linear;
+}
+
+.stitch__needle-bar {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 0.32rem;
+  height: 8.5rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #4c4c4c, #f0f0eb 48%, #70706d);
+  box-shadow: 0 0 1rem rgba(255, 255, 255, 0.12);
+  transform: translateX(-50%);
+}
+
+.stitch__needle-eye {
+  position: absolute;
+  left: 50%;
+  top: 7.7rem;
+  width: 0.45rem;
+  height: 0.8rem;
+  border: 1px solid #d6d4cc;
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+
+.stitch__presser {
+  position: absolute;
+  left: 50%;
+  top: 8.35rem;
+  width: 4.4rem;
+  height: 1rem;
+  border: 2px solid #858581;
+  border-top-width: 0.35rem;
+  border-radius: 0.2rem 0.2rem 0.5rem 0.5rem;
+  transform: translateX(-50%);
+}
+
+.stitch__thread-tail {
+  position: absolute;
+  left: calc(50% + 0.12rem);
+  top: 8rem;
+  width: 3rem;
+  height: 3rem;
+  border-right: 1px solid #c4a06e;
+  border-bottom: 1px solid #c4a06e;
+  border-radius: 0 0 100% 0;
+  opacity: 0.8;
+}
+
+.stitch__copy {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  width: min(90%, 42rem);
+  text-align: center;
+  transform: translateX(-50%);
+  opacity: calc(1 - var(--stitch-progress));
+}
+
+.stitch__eyebrow {
+  margin: 0 0 0.7rem;
+  color: #c4a06e;
+  font-size: 0.67rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.stitch__copy h2 {
+  margin: 0;
+  font-size: clamp(2.3rem, 5vw, 4rem);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.stitch__copy > p:last-of-type {
+  max-width: 44ch;
+  margin: 0.75rem auto 0;
+  color: rgba(245, 240, 232, 0.64);
+}
+
+.stitch__scroll-cue {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 1.25rem;
+  color: rgba(245, 240, 232, 0.55);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.stitch__scroll-cue span {
+  display: block;
+  width: 2.2rem;
+  height: 1px;
+  background: #9b1528;
+}
+
+.stitch__counter {
+  position: absolute;
+  right: clamp(1.5rem, 5vw, 5rem);
+  bottom: 7%;
+  display: grid;
+  gap: 0.55rem;
+  width: min(14rem, 28vw);
+  color: rgba(245, 240, 232, 0.45);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+}
+
+.stitch__meter {
+  height: 2px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.stitch__meter i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #9b1528, #c4a06e);
+  transform: scaleX(var(--stitch-progress));
+  transform-origin: left;
+}
+
+@media (max-width: 720px) {
+  :host {
+    height: 165svh;
+  }
+
+  .stitch__fabric {
+    inset-inline: -25%;
+    top: 40%;
+  }
+
+  .stitch__copy {
+    top: 12%;
+  }
+
+  .stitch__needle {
+    top: 3.6rem;
+  }
+
+  .stitch__counter {
+    right: 1.25rem;
+    width: 9rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :host {
+    height: 100svh;
+    --stitch-progress: 1;
+    --needle-x: 88%;
+  }
+
+  .stitch__copy {
+    opacity: 1;
+  }
+
+  .stitch__fabric,
+  .stitch__needle {
+    transition: none;
+  }
+}

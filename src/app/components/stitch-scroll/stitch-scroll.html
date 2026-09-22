@@ -1,0 +1,49 @@
+<section class="stitch" aria-labelledby="stitch-title">
+  <div class="stitch__sticky">
+    <div class="stitch__fabric" aria-hidden="true">
+      <div class="stitch__grain"></div>
+      <svg class="stitch__seam" viewBox="0 0 1200 260" preserveAspectRatio="none">
+        <defs>
+          <mask id="seam-reveal">
+            <path
+              class="stitch__mask"
+              pathLength="1"
+              d="M60 158 C220 92 345 205 500 146 S790 92 1140 150"
+            />
+          </mask>
+        </defs>
+        <path
+          class="stitch__guide"
+          d="M60 158 C220 92 345 205 500 146 S790 92 1140 150"
+        />
+        <path
+          class="stitch__thread"
+          mask="url(#seam-reveal)"
+          d="M60 158 C220 92 345 205 500 146 S790 92 1140 150"
+        />
+      </svg>
+
+      <div class="stitch__needle">
+        <div class="stitch__needle-bar"></div>
+        <div class="stitch__needle-eye"></div>
+        <div class="stitch__presser"></div>
+        <div class="stitch__thread-tail"></div>
+      </div>
+    </div>
+
+    <div class="stitch__copy">
+      <p class="stitch__eyebrow">Precisión en movimiento</p>
+      <h2 id="stitch-title">Cada avance deja una puntada.</h2>
+      <p>Desplázate para coser la línea y descubrir herramientas pensadas para producir sin pausa.</p>
+      <span class="stitch__scroll-cue" aria-hidden="true">
+        <span></span>
+        Sigue bajando
+      </span>
+    </div>
+
+    <div class="stitch__counter" aria-hidden="true">
+      <span>PROGRESO DE COSTURA</span>
+      <div class="stitch__meter"><i></i></div>
+    </div>
+  </div>
+</section>
