@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:costurasprogramadas": "node dist/costurasprogramadas/server/server.mjs"
+    "serve:ssr:costurasprogramadas": "node dist/costurasprogramadas/server/server.mjs",
+    "deploy": "npm run build && npx firebase-tools deploy --only hosting"
   },
   "private": true,
   "packageManager": "npm@11.12.1",
