@@ -1,11 +1,15 @@
 :host {
   --stitch-progress: 0;
-  --needle-x: 12%;
+  --open-progress: 0;
+  --needle-x: 5%;
+  --needle-y: 60%;
   --needle-bob: 0px;
-  --fabric-shift: 0px;
+  --tip-flash: 0;
   display: block;
-  height: 190svh;
-  background: #0b0b0c;
+  height: 270svh;
+  background: transparent;
+  /* Static so ScrollTrigger positions below stay valid while this section animates. */
+  margin-bottom: -22svh;
 }
 
 .stitch {
@@ -20,12 +24,54 @@
   height: 100svh;
   overflow: hidden;
   color: #f5f0e8;
-  background:
-    radial-gradient(circle at 50% 48%, rgba(155, 21, 40, 0.12), transparent 32%),
-    linear-gradient(180deg, #0b0b0c, #111013);
+  isolation: isolate;
 }
 
-.stitch__sticky::before {
+.stitch__open-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 50%, rgba(200, 16, 46, 0.07), transparent 55%),
+    linear-gradient(180deg, #f7f5f2 0%, #ffffff 45%, #f7f5f2 100%);
+}
+
+.stitch__open-label {
+  margin: 0;
+  color: var(--color-accent-deep);
+  font-family: var(--font-display, Georgia, serif);
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  font-style: italic;
+  letter-spacing: 0.04em;
+  opacity: calc(clamp(0, (var(--open-progress) - 0.18) / 0.35, 1));
+  transform: translateY(calc((1 - var(--open-progress)) * 0.8rem))
+    scale(calc(0.94 + var(--open-progress) * 0.06));
+  transition: opacity 60ms linear;
+}
+
+.stitch__door {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  pointer-events: none;
+  transition: transform 80ms linear;
+}
+
+.stitch__door--top {
+  top: 0;
+  height: 52%;
+  transform: translateY(calc(var(--open-progress) * -105%));
+  background:
+    radial-gradient(circle at 50% 100%, rgba(155, 21, 40, 0.14), transparent 40%),
+    linear-gradient(180deg, #0b0b0c, #121014);
+  box-shadow: 0 1px 0 rgba(196, 160, 110, 0.12);
+}
+
+.stitch__door--top::before,
+.stitch__door--bottom::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -34,20 +80,80 @@
     linear-gradient(90deg, rgba(196, 160, 110, 0.035) 1px, transparent 1px);
   background-size: 4rem 4rem;
   mask-image: linear-gradient(90deg, transparent, #000 22%, #000 78%, transparent);
+  opacity: 0.9;
+}
+
+.stitch__door--bottom {
+  bottom: 0;
+  height: 52%;
+  transform: translateY(calc(var(--open-progress) * 105%));
+  background:
+    radial-gradient(circle at 50% 0%, rgba(155, 21, 40, 0.14), transparent 40%),
+    linear-gradient(0deg, #0b0b0c, #121014);
+  box-shadow: 0 -1px 0 rgba(196, 160, 110, 0.12);
+}
+
+.stitch__split-glow {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  z-index: 4;
+  height: calc(2px + var(--open-progress) * 3.5rem);
+  transform: translateY(-50%);
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(213, 180, 126, 0.35) 18%,
+    rgba(245, 240, 232, 0.9) 50%,
+    rgba(213, 180, 126, 0.35) 82%,
+    transparent
+  );
+  opacity: calc(var(--open-progress) * (1 - var(--open-progress)) * 3.6);
+  filter: blur(calc(3px + var(--open-progress) * 8px));
+}
+
+.stitch__stage {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: transparent;
+  opacity: calc(1 - var(--open-progress) * 1.35);
+  visibility: visible;
+  pointer-events: none;
+  transition: opacity 80ms linear;
+}
+
+:host.is-open .stitch__stage {
+  visibility: hidden;
+  opacity: 0;
 }
 
 .stitch__fabric {
   position: absolute;
   inset: 34% -4% auto;
   height: 18rem;
-  overflow: hidden;
-  transform: translateX(var(--fabric-shift)) rotate(-1.5deg);
+  overflow: visible;
+  opacity: calc(1 - min(1, var(--open-progress) * 8));
+  visibility: visible;
   background:
     linear-gradient(110deg, rgba(255, 255, 255, 0.025), transparent 30%),
     repeating-linear-gradient(90deg, #211c1f 0 2px, #1b171a 2px 5px);
   border-block: 1px solid rgba(196, 160, 110, 0.13);
   box-shadow: 0 2.5rem 5rem rgba(0, 0, 0, 0.35);
-  transition: transform 80ms linear;
+  transform: rotate(-1.5deg) scaleY(calc(1 - var(--open-progress) * 0.2));
+  transition:
+    opacity 60ms linear,
+    transform 80ms linear;
+}
+
+:host.is-opening .stitch__fabric {
+  visibility: hidden;
+  opacity: 0;
 }
 
 .stitch__grain {
@@ -67,6 +173,12 @@
   overflow: visible;
 }
 
+.stitch__track {
+  fill: none;
+  stroke: none;
+  pointer-events: none;
+}
+
 .stitch__guide,
 .stitch__thread,
 .stitch__mask {
@@ -75,145 +187,242 @@
 }
 
 .stitch__guide {
-  stroke: rgba(196, 160, 110, 0.14);
+  stroke: rgba(196, 160, 110, 0.11);
   stroke-width: 1;
 }
 
 .stitch__thread {
   stroke: #d5b47e;
-  stroke-width: 3;
+  stroke-width: 3.2;
   stroke-linecap: round;
-  stroke-dasharray: 9 13;
-  filter: drop-shadow(0 0 4px rgba(213, 180, 126, 0.45));
+  stroke-dasharray: 12 10;
+  filter: drop-shadow(0 1px 2px rgba(213, 180, 126, 0.42));
 }
 
 .stitch__mask {
+  fill: none;
   stroke: #fff;
-  stroke-width: 18;
-  stroke-dasharray: 1;
-  stroke-dashoffset: calc(1 - var(--stitch-progress));
+  stroke-width: 22;
+  stroke-linecap: round;
+  /* Hidden until JS measures path length and drives the reveal. */
+  stroke-dasharray: 2400;
+  stroke-dashoffset: 2400;
 }
 
 .stitch__needle {
   position: absolute;
   z-index: 3;
   left: var(--needle-x);
-  top: 3.2rem;
-  width: 4.6rem;
-  height: 10rem;
-  transform: translate(-50%, var(--needle-bob));
-  transition:
-    left 80ms linear,
-    transform 45ms linear;
+  top: var(--needle-y);
+  width: 3.8rem;
+  height: 8.2rem;
+  /* Needle point sits exactly on the SVG path. */
+  transform: translate(-50%, calc(-91% + var(--needle-bob)));
+  opacity: calc(1 - min(1, var(--open-progress) * 10));
+  will-change: left, top, transform;
+  transition: none;
+}
+
+:host.is-opening .stitch__needle {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.stitch__needle-housing {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 0.9rem;
+  height: 1.65rem;
+  border: 1px solid #858782;
+  border-radius: 0.18rem 0.18rem 0.08rem 0.08rem;
+  background: linear-gradient(90deg, #484b4a 0%, #c8cbc7 30%, #f2f2ed 52%, #777a77 100%);
+  box-shadow:
+    inset -2px 0 3px rgba(0, 0, 0, 0.35),
+    0 3px 7px rgba(0, 0, 0, 0.3);
+  transform: translateX(-50%);
+}
+
+.stitch__needle-clamp {
+  position: absolute;
+  left: 50%;
+  top: 1.35rem;
+  width: 1.35rem;
+  height: 0.7rem;
+  border: 1px solid #777a77;
+  border-radius: 0.16rem;
+  background: linear-gradient(180deg, #dedfda, #777a77 58%, #454746);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transform: translateX(-50%);
+}
+
+.stitch__needle-clamp::after {
+  content: '';
+  position: absolute;
+  right: -0.34rem;
+  top: 50%;
+  width: 0.45rem;
+  height: 0.32rem;
+  border-radius: 0 0.15rem 0.15rem 0;
+  background: #a6a8a4;
+  transform: translateY(-50%);
 }
 
 .stitch__needle-bar {
   position: absolute;
   left: 50%;
-  top: 0;
-  width: 0.32rem;
-  height: 8.5rem;
+  top: 1.8rem;
+  width: 0.16rem;
+  height: 5.15rem;
   border-radius: 999px;
-  background: linear-gradient(90deg, #4c4c4c, #f0f0eb 48%, #70706d);
-  box-shadow: 0 0 1rem rgba(255, 255, 255, 0.12);
+  background: linear-gradient(90deg, #555, #f4f4ef 42%, #989a96 68%, #3f4140);
+  box-shadow: 0 0 0.35rem rgba(255, 255, 255, 0.18);
   transform: translateX(-50%);
 }
 
 .stitch__needle-eye {
   position: absolute;
   left: 50%;
-  top: 7.7rem;
-  width: 0.45rem;
-  height: 0.8rem;
-  border: 1px solid #d6d4cc;
+  top: 6.2rem;
+  width: 0.24rem;
+  height: 0.48rem;
+  border: 1px solid #d9d9d3;
   border-radius: 50%;
+  background: rgba(20, 20, 20, 0.6);
+  transform: translateX(-50%);
+}
+
+.stitch__needle-point {
+  position: absolute;
+  left: 50%;
+  top: 6.68rem;
+  width: 0.18rem;
+  height: 0.65rem;
+  background: linear-gradient(90deg, #555, #eee 52%, #666);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
   transform: translateX(-50%);
 }
 
 .stitch__presser {
   position: absolute;
   left: 50%;
-  top: 8.35rem;
-  width: 4.4rem;
-  height: 1rem;
-  border: 2px solid #858581;
-  border-top-width: 0.35rem;
-  border-radius: 0.2rem 0.2rem 0.5rem 0.5rem;
+  top: 6.55rem;
+  width: 3.35rem;
+  height: 0.82rem;
+  border: 1px solid #8e918e;
+  border-top: 0.3rem solid #aeb0ac;
+  border-radius: 0.16rem 0.16rem 0.42rem 0.42rem;
+  background: linear-gradient(180deg, rgba(202, 204, 200, 0.75), rgba(57, 59, 58, 0.68));
+  box-shadow:
+    inset 0 -2px 2px rgba(0, 0, 0, 0.45),
+    0 3px 5px rgba(0, 0, 0, 0.3);
+  transform: translateX(-50%);
+}
+
+.stitch__presser::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -0.3rem;
+  width: 0.55rem;
+  height: 0.65rem;
+  border-inline: 1px solid rgba(40, 40, 40, 0.65);
+  background: rgba(20, 20, 20, 0.38);
   transform: translateX(-50%);
 }
 
 .stitch__thread-tail {
   position: absolute;
-  left: calc(50% + 0.12rem);
-  top: 8rem;
-  width: 3rem;
-  height: 3rem;
-  border-right: 1px solid #c4a06e;
-  border-bottom: 1px solid #c4a06e;
+  left: calc(50% + 0.08rem);
+  top: 6.25rem;
+  width: 1.9rem;
+  height: 1.55rem;
+  border-right: 1px solid var(--color-gold);
+  border-bottom: 1px solid var(--color-gold);
   border-radius: 0 0 100% 0;
-  opacity: 0.8;
+  opacity: 0.68;
+}
+
+.stitch__tip-glow {
+  position: absolute;
+  left: 50%;
+  top: 7.28rem;
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, #f0d9a8, transparent 70%);
+  transform: translate(-50%, -50%) scale(calc(0.4 + var(--tip-flash) * 1.8));
+  opacity: calc(var(--tip-flash) * 0.95);
+  pointer-events: none;
 }
 
 .stitch__copy {
   position: absolute;
   top: 10%;
   left: 50%;
+  z-index: 1;
   width: min(90%, 42rem);
   text-align: center;
-  transform: translateX(-50%);
-  opacity: calc(1 - var(--stitch-progress));
+  transform: translate(-50%, calc(var(--open-progress) * -2.5rem));
+  opacity: calc((1 - var(--stitch-progress) * 1.15) * (1 - var(--open-progress) * 4));
 }
 
 .stitch__eyebrow {
   margin: 0 0 0.7rem;
-  color: #c4a06e;
-  font-size: 0.67rem;
-  font-weight: 500;
-  letter-spacing: 0.28em;
+  color: var(--color-gold);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
 .stitch__copy h2 {
   margin: 0;
-  font-size: clamp(2.3rem, 5vw, 4rem);
+  font-size: clamp(2.4rem, 5vw, 4rem);
   font-style: italic;
   font-weight: 500;
 }
 
 .stitch__copy > p:last-of-type {
-  max-width: 44ch;
-  margin: 0.75rem auto 0;
-  color: rgba(245, 240, 232, 0.64);
+  max-width: 40ch;
+  margin: 0.9rem auto 0;
+  color: rgba(245, 240, 232, 0.82);
+  font-size: 1.15rem;
+  line-height: 1.65;
 }
 
 .stitch__scroll-cue {
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
-  margin-top: 1.25rem;
-  color: rgba(245, 240, 232, 0.55);
-  font-size: 0.65rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  margin-top: 1.35rem;
+  color: rgba(245, 240, 232, 0.75);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: none;
+  font-weight: 500;
 }
 
 .stitch__scroll-cue span {
   display: block;
   width: 2.2rem;
   height: 1px;
-  background: #9b1528;
+  background: var(--color-accent-deep);
 }
 
 .stitch__counter {
   position: absolute;
   right: clamp(1.5rem, 5vw, 5rem);
   bottom: 7%;
+  z-index: 1;
   display: grid;
   gap: 0.55rem;
   width: min(14rem, 28vw);
   color: rgba(245, 240, 232, 0.45);
   font-size: 0.6rem;
   letter-spacing: 0.2em;
+  opacity: calc(1 - var(--open-progress) * 5);
+  transform: translateY(calc(var(--open-progress) * 1.2rem));
 }
 
 .stitch__meter {
@@ -226,32 +435,46 @@
   display: block;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, #9b1528, #c4a06e);
+  background: linear-gradient(90deg, var(--color-accent-deep), var(--color-gold));
   transform: scaleX(var(--stitch-progress));
   transform-origin: left;
 }
 
 @media (max-width: 720px) {
   :host {
-    height: 165svh;
+    height: 210svh;
   }
 
   .stitch__fabric {
-    inset-inline: -25%;
-    top: 40%;
+    inset: 42% -32% auto;
+    height: 12rem;
   }
 
   .stitch__copy {
-    top: 12%;
+    top: 11%;
+    width: min(92%, 36rem);
   }
 
-  .stitch__needle {
-    top: 3.6rem;
+  .stitch__copy h2 {
+    font-size: clamp(1.85rem, 8vw, 2.6rem);
+  }
+
+  .stitch__copy > p:last-of-type {
+    font-size: 1.02rem;
+  }
+
+  .stitch__open-label {
+    font-size: clamp(1.25rem, 6vw, 1.8rem);
+    padding-inline: 1rem;
+    text-align: center;
   }
 
   .stitch__counter {
-    right: 1.25rem;
-    width: 9rem;
+    left: 1.25rem;
+    right: auto;
+    bottom: 5%;
+    width: min(11rem, 55vw);
+    font-size: 0.65rem;
   }
 }
 
@@ -259,15 +482,32 @@
   :host {
     height: 100svh;
     --stitch-progress: 1;
-    --needle-x: 88%;
+    --open-progress: 1;
   }
 
-  .stitch__copy {
-    opacity: 1;
-  }
-
+  .stitch__door,
+  .stitch__stage,
   .stitch__fabric,
   .stitch__needle {
     transition: none;
+  }
+
+  .stitch__door--top {
+    transform: translateY(-105%);
+  }
+
+  .stitch__door--bottom {
+    transform: translateY(105%);
+  }
+
+  .stitch__stage,
+  .stitch__fabric,
+  .stitch__needle {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .stitch__open-label {
+    opacity: 1;
   }
 }

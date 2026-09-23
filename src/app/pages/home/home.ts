@@ -2,14 +2,14 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Hero } from '../../components/hero/hero';
 import { FeaturedProducts } from '../../components/featured-products/featured-products';
 import { Benefits } from '../../components/benefits/benefits';
-import { About } from '../../components/about/about';
 import { StitchScroll } from '../../components/stitch-scroll/stitch-scroll';
+import { AtelierExpand } from '../../components/atelier-expand/atelier-expand';
 import { SeoService } from '../../services/seo.service';
 import { CONTACT_ADDRESS, CONTACT_EMAIL, CONTACT_PHONE_DISPLAY } from '../../data/products';
 
 @Component({
   selector: 'app-home',
-  imports: [Hero, StitchScroll, FeaturedProducts, Benefits, About],
+  imports: [Hero, StitchScroll, FeaturedProducts, AtelierExpand, Benefits],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })

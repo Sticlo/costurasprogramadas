@@ -1,0 +1,168 @@
+:host {
+  display: block;
+}
+
+.expand__pin {
+  position: relative;
+  height: 100svh;
+  overflow: hidden;
+}
+
+.expand__intro {
+  position: absolute;
+  top: calc(var(--header-height) + clamp(1rem, 3vh, 2rem));
+  left: 50%;
+  z-index: 2;
+  width: min(92%, 46rem);
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.expand__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.7rem;
+  color: var(--color-accent-deep);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.expand__eyebrow::before,
+.expand__eyebrow::after {
+  content: '';
+  width: 1.6rem;
+  height: 1px;
+  background: var(--color-gold);
+}
+
+.expand__title {
+  font-size: clamp(1.9rem, 3.6vw, 3.1rem);
+  line-height: 1.12;
+}
+
+.expand__title em {
+  display: block;
+  color: var(--color-accent-deep);
+}
+
+.expand__media {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  clip-path: inset(36% 24% 10% 24% round 14px);
+  background: var(--color-night);
+  will-change: clip-path;
+}
+
+.expand__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 45%;
+  transform: scale(1.35);
+  will-change: transform;
+}
+
+.expand__shade {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background:
+    linear-gradient(180deg, rgba(11, 11, 12, 0.15) 0%, rgba(11, 11, 12, 0.35) 45%, rgba(11, 11, 12, 0.82) 100%);
+}
+
+/* Dashed "basting" outline that travels with the frame edge. */
+.expand__seam {
+  position: absolute;
+  top: 36%;
+  left: 24%;
+  right: 24%;
+  bottom: 10%;
+  z-index: 3;
+  border: 1.5px dashed rgba(196, 160, 110, 0.9);
+  border-radius: 18px;
+  margin: -10px;
+  pointer-events: none;
+}
+
+.expand__outro {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(3rem, 11vh, 6.5rem);
+  z-index: 4;
+  display: grid;
+  justify-items: center;
+  gap: 0.9rem;
+  width: min(92%, 40rem);
+  color: #fff;
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.expand__outro > * {
+  opacity: 0;
+}
+
+.expand__kicker {
+  color: var(--color-gold-soft);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.expand__headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-style: italic;
+  line-height: 1.05;
+  text-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+}
+
+.expand__cta {
+  margin-top: 0.4rem;
+}
+
+@media (max-width: 720px) {
+  .expand__media {
+    clip-path: inset(40% 6% 13% 6% round 12px);
+  }
+
+  .expand__seam {
+    top: 40%;
+    left: 6%;
+    right: 6%;
+    bottom: 13%;
+  }
+
+  .expand__title {
+    font-size: clamp(1.65rem, 7vw, 2.1rem);
+  }
+
+  .expand__cta {
+    width: 100%;
+  }
+}
+
+/* Reduced motion: show the finished, fully opened composition. */
+:host.expand--static .expand__media {
+  clip-path: none;
+}
+
+:host.expand--static .expand__media img {
+  transform: none;
+}
+
+:host.expand--static .expand__shade,
+:host.expand--static .expand__outro > * {
+  opacity: 1;
+}
+
+:host.expand--static .expand__intro,
+:host.expand--static .expand__seam {
+  display: none;
+}

@@ -7,54 +7,109 @@
   max-width: 14ch;
 }
 
-.contact__grid {
+.contact__layout {
   display: grid;
-  gap: var(--space-5);
+  gap: var(--space-4);
+  max-width: 44rem;
 }
 
-.contact__cards {
+.contact__primary {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.25rem;
-}
-
-.contact__card {
-  display: grid;
-  align-content: start;
   gap: 0.75rem;
-  min-height: 14rem;
-  padding: 1.5rem;
+  padding: 1.75rem;
   border: 1px solid var(--color-line);
   background: var(--color-surface);
+  box-shadow: var(--shadow-soft);
 }
 
 .contact__label {
   color: var(--color-accent);
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.22em;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
-.contact__value {
+.contact__phone {
   font-family: var(--font-display);
-  font-size: clamp(1.35rem, 2vw, 1.75rem);
-  line-height: 1.25;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  line-height: 1.1;
+}
+
+.contact__hours {
+  color: var(--color-muted);
+  font-size: 1.05rem;
+}
+
+.contact__wa {
+  justify-self: start;
+  margin-top: 0.5rem;
+  min-width: min(100%, 18rem);
+}
+
+.contact__form {
+  display: grid;
+  gap: 1rem;
+  padding: 1.75rem;
+  border: 1px solid var(--color-line);
+  background: var(--color-canvas);
+}
+
+.contact__field {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.contact__field span {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.contact__field input,
+.contact__field textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font: inherit;
+  font-size: 1.05rem;
+  line-height: 1.45;
+}
+
+.contact__field input:focus-visible,
+.contact__field textarea:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.contact__meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.contact__meta article {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.contact__meta-value {
+  font-size: 1.1rem;
+  line-height: 1.45;
+  color: var(--color-ink-soft);
   word-break: break-word;
 }
 
-.contact__note {
-  color: var(--color-muted);
-  font-size: 0.95rem;
-}
-
-.contact__btn {
-  margin-top: auto;
-  justify-self: start;
-}
-
-@media (max-width: 860px) {
-  .contact__cards {
+@media (max-width: 720px) {
+  .contact__meta {
     grid-template-columns: 1fr;
+  }
+
+  .contact__wa,
+  .contact__form .btn {
+    width: 100%;
+    max-width: none;
   }
 }

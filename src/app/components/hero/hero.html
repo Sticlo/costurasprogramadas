@@ -1,25 +1,30 @@
 <section class="hero" aria-labelledby="hero-brand">
-  <div class="hero__atmosphere" aria-hidden="true"></div>
+  <div class="hero__atmosphere" aria-hidden="true" [appParallax]="0.4" [parallaxMax]="260"></div>
+  <div class="hero__visual" aria-hidden="true" [appParallax]="0.22" [parallaxMax]="180"></div>
 
-  <div class="hero__visual" aria-hidden="true"></div>
-
-  <div class="hero__inner">
+  <div class="hero__inner" [appParallax]="-0.12" [parallaxMax]="90">
     <div class="hero__copy">
       <p class="hero__eyebrow">Desde La Alquería · Bogotá</p>
       <p class="hero__brand" id="hero-brand">Costuras Programadas</p>
       <div class="hero__rule" aria-hidden="true"></div>
       <h1 class="hero__title">
-        El taller no se detiene.
-        <span>Tu máquina tampoco debería.</span>
+        Máquinas y herramientas para su taller.
+        <span>Con asesoría clara y cercana.</span>
       </h1>
       <p class="hero__lead">
-        Seleccionamos maquinaria industrial y herramientas de corte con un criterio simple:
-        que aguanten el día a día, que respondan bajo presión y que vengan con asesoría de verdad —
-        no con promesas de catálogo.
+        Le ayudamos a elegir maquinaria industrial confiable para el día a día.
+        Sin tecnicismos innecesarios: le explicamos qué le conviene, por qué, y cómo cotizarla.
       </p>
       <div class="hero__actions">
-        <a class="hero__btn hero__btn--primary" routerLink="/catalogo">Ver maquinaria disponible</a>
-        <a class="hero__btn hero__btn--ghost" routerLink="/contacto">Hablar con un técnico</a>
+        <a class="hero__btn hero__btn--primary" routerLink="/catalogo">Ver catálogo</a>
+        <a
+          class="hero__btn hero__btn--ghost"
+          [href]="whatsapp"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Escribir por WhatsApp
+        </a>
       </div>
     </div>
   </div>

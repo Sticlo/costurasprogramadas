@@ -24,10 +24,10 @@ export class Header {
     { initialValue: true },
   );
 
-  protected readonly links: { label: string; path: string; fragment?: string }[] = [
+  protected readonly links: { label: string; path: string }[] = [
     { label: 'Inicio', path: '/' },
-    { label: 'Catálogo de productos', path: '/catalogo' },
-    { label: 'Servicios', path: '/', fragment: 'nosotros' },
+    { label: 'Catálogo', path: '/catalogo' },
+    { label: 'Nosotros', path: '/nosotros' },
     { label: 'Contacto', path: '/contacto' },
   ];
 
@@ -37,10 +37,17 @@ export class Header {
   }
 
   toggleMenu(): void {
-    this.menuOpen.update((open) => !open);
+    this.menuOpen.update((open) => {
+      const next = !open;
+      document.body.style.overflow = next ? 'hidden' : '';
+      document.body.classList.toggle('menu-open', next);
+      return next;
+    });
   }
 
   closeMenu(): void {
     this.menuOpen.set(false);
+    document.body.style.overflow = '';
+    document.body.classList.remove('menu-open');
   }
 }

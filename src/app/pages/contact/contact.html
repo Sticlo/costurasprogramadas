@@ -1,32 +1,63 @@
-<section class="contact section">
-  <div class="container contact__grid">
-    <header class="contact__intro" appReveal="up">
-      <span class="section__label">Contacto</span>
-      <h1 class="section__title contact__title">Hablemos de tu próximo equipo.</h1>
+<section
+  class="contact section fabric fabric--motifs"
+  [appParallax]="0.18"
+  [parallaxMax]="220"
+  parallaxMode="background"
+>
+  <div class="container contact__layout">
+    <header class="contact__intro" appReveal="blur" [appParallax]="-0.06" [parallaxMax]="40">
+      <span class="section__label stitch-draw">Contacto</span>
+      <h1 class="section__title contact__title">Estamos para ayudarle.</h1>
       <p class="section__lead">
-        Cotizaciones, disponibilidad y asesoría para elegir la máquina o herramienta correcta.
+        El camino más rápido es WhatsApp. Cuéntenos qué necesita y le orientamos con una cotización
+        clara.
       </p>
     </header>
 
-    <div class="contact__cards">
-      <article class="contact__card" appReveal="up" [revealDelay]="80">
-        <p class="contact__label">WhatsApp y llamadas</p>
-        <a class="contact__value" [href]="'tel:+57' + phone.replaceAll(' ', '')">{{ phone }}</a>
-        <a class="btn btn--primary contact__btn" [href]="whatsapp" target="_blank" rel="noopener noreferrer">
-          Abrir WhatsApp
-        </a>
-      </article>
+    <div class="contact__primary" appReveal="rise">
+      <p class="contact__label">Canal principal</p>
+      <a class="contact__phone" [href]="'tel:+57' + phone.replaceAll(' ', '')">{{ phone }}</a>
+      <p class="contact__hours">{{ hours }}</p>
+      <a class="btn btn--primary contact__wa" [href]="whatsapp" target="_blank" rel="noopener noreferrer">
+        Abrir WhatsApp ahora
+      </a>
+    </div>
 
-      <article class="contact__card" appReveal="up" [revealDelay]="160">
+    <form class="contact__form" appReveal="up" [revealDelay]="120" (submit)="$event.preventDefault(); openQuote()">
+      <p class="contact__label">O envíenos un mensaje listo</p>
+      <label class="contact__field">
+        <span>¿Qué necesita?</span>
+        <textarea
+          rows="3"
+          [ngModel]="need()"
+          (ngModelChange)="need.set($event)"
+          name="need"
+          placeholder="Ejemplo: overlock para taller de 4 personas"
+          required
+        ></textarea>
+      </label>
+      <label class="contact__field">
+        <span>Ciudad</span>
+        <input
+          type="text"
+          [ngModel]="city()"
+          (ngModelChange)="city.set($event)"
+          name="city"
+          placeholder="Bogotá"
+          required
+        />
+      </label>
+      <button type="submit" class="btn btn--ghost">Preparar mensaje en WhatsApp</button>
+    </form>
+
+    <div class="contact__meta" appReveal="fade" [revealDelay]="180">
+      <article>
         <p class="contact__label">Correo</p>
-        <a class="contact__value" [href]="'mailto:' + email">{{ email }}</a>
-        <a class="btn btn--ghost contact__btn" [href]="'mailto:' + email">Enviar correo</a>
+        <a class="contact__meta-value" [href]="'mailto:' + email">{{ email }}</a>
       </article>
-
-      <article class="contact__card" appReveal="up" [revealDelay]="240">
+      <article>
         <p class="contact__label">Ubicación</p>
-        <p class="contact__value">{{ address }}</p>
-        <p class="contact__note">Atención comercial para talleres en Bogotá y Colombia.</p>
+        <p class="contact__meta-value">{{ address }}</p>
       </article>
     </div>
   </div>

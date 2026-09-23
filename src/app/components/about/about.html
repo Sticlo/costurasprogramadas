@@ -1,30 +1,50 @@
-<section class="about section" id="nosotros" aria-labelledby="about-title">
+<section
+  class="about section fabric fabric--stitches has-deco"
+  aria-labelledby="about-title"
+  [appParallax]="0.2"
+  [parallaxMax]="160"
+  parallaxMode="background"
+>
+  <svg
+    class="seam-deco about__seam"
+    viewBox="0 0 1000 220"
+    aria-hidden="true"
+    [appParallax]="0.3"
+    [parallaxMax]="180"
+  >
+    <path d="M-20 120 C160 30 360 200 540 100 S840 20 1020 140" />
+  </svg>
+
   <div class="about__grid container">
-    <div class="about__visual" appReveal="scale">
-      <div class="about__frame">
+    <div class="about__visual" appReveal="scale" [revealDelay]="80">
+      <div class="about__frame parallax-frame" [appExpandImage]="12" [expandZoom]="1.35">
         <img
-          src="/assets/logo-costuras-programadas.jpg"
-          alt="Emblema Costuras Programadas"
+          src="/assets/workshop-taller.jpg"
+          alt="Taller de confección Costuras Programadas"
           width="640"
           height="640"
+          loading="eager"
+          fetchpriority="high"
         />
       </div>
     </div>
 
-    <div class="about__copy" appReveal="left">
-      <span class="section__label">Nosotros</span>
-      <h2 class="section__title" id="about-title">Equipamos talleres que quieren crecer.</h2>
+    <div class="about__copy" appReveal="right" [revealDelay]="160" [appParallax]="-0.06" [parallaxMax]="44">
+      <span class="section__label stitch-draw">Nosotros</span>
+      <h1 class="section__title" id="about-title">Equipamos talleres que quieren crecer.</h1>
       <p class="about__text">
-        En Costuras Programadas vendemos maquinaria y herramientas para confección con criterio de
+        En Costuras Programadas vendemos máquinas y herramientas para confección con criterio de
         oficio: equipos que responden al uso diario, asesoría honesta y acompañamiento en Bogotá y
-        el resto del país.
+        en el resto del país.
       </p>
       <ul class="about__points">
-        <li>Selección pensada para producción real</li>
-        <li>Marcas y repuestos con soporte local</li>
-        <li>Cotización rápida por WhatsApp o correo</li>
+        <li appReveal="up" [revealDelay]="280">Selección pensada para producción real</li>
+        <li appReveal="up" [revealDelay]="380">Marcas y repuestos con soporte local</li>
+        <li appReveal="up" [revealDelay]="480">Cotización rápida por WhatsApp o correo</li>
       </ul>
-      <a class="btn btn--primary about__cta" routerLink="/contacto">Solicitar cotización</a>
+      <a class="btn btn--primary about__cta" routerLink="/contacto" appReveal="up" [revealDelay]="560">
+        Pedir cotización
+      </a>
     </div>
   </div>
 </section>

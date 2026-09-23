@@ -1,25 +1,26 @@
 import { Component } from '@angular/core';
+import { Parallax } from '../../directives/parallax';
 import { Reveal } from '../../directives/reveal';
 
 @Component({
   selector: 'app-benefits',
-  imports: [Reveal],
+  imports: [Reveal, Parallax],
   templateUrl: './benefits.html',
   styleUrl: './benefits.css',
 })
 export class Benefits {
   protected readonly items = [
     {
-      title: 'Asesoría real de taller',
-      text: 'Te orientamos según el tipo de prenda, volumen y presupuesto — sin tecnicismos vacíos.',
+      title: 'Asesoría de taller',
+      text: 'Le orientamos según el tipo de prenda, el volumen y el presupuesto, con palabras claras.',
     },
     {
       title: 'Equipo listo para producir',
-      text: 'Máquinas y herramientas seleccionadas por durabilidad, repuestos y soporte en Colombia.',
+      text: 'Máquinas y herramientas elegidas por durabilidad, repuestos y soporte en Colombia.',
     },
     {
       title: 'Compra con acompañamiento',
-      text: 'Cotización clara por WhatsApp o correo, con seguimiento después de la entrega.',
+      text: 'Cotización clara por WhatsApp o correo, y seguimiento después de la entrega.',
     },
   ];
 }

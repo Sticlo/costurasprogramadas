@@ -10,10 +10,38 @@ export interface Product {
   priceLabel: string;
   featured: boolean;
   specs: string[];
-  image: string;
+  /** Gallery images; first entry is the primary catalog/card image. */
+  images: string[];
+}
+
+/** Primary image helper for cards, SEO and listings. */
+export function productImage(product: Product): string {
+  return product.images[0] ?? '/assets/logo-nav-light.png';
 }
 
 export const PRODUCTS: Product[] = [
+  {
+    slug: 'plana-mecatronica-ks8800dh',
+    name: 'Plana mecatrónica KS 8800D H',
+    category: 'maquinaria',
+    categoryLabel: 'Maquinaria',
+    summary: 'Kansew Special para costura pesada: potencia, panel digital y ritmo de taller.',
+    description:
+      'Plana mecatrónica Kansew Special KS 8800D H pensada para materiales medios y pesados. Motor direct drive, panel digital integrado y bajo consumo para producción diaria en taller.',
+    priceLabel: 'Consultar precio',
+    featured: true,
+    specs: [
+      'Motor direct drive',
+      'Panel digital integrado',
+      'Bajo consumo de energía',
+      'Alta velocidad',
+      'Ideal para costura pesada',
+    ],
+    images: [
+      '/assets/products/plana-mecatronica-ks8800dh-01.jpg',
+      '/assets/products/plana-mecatronica-ks8800dh-02.jpg',
+    ],
+  },
   {
     slug: 'recta-industrial-stitchpro',
     name: 'Recta industrial StitchPro',
@@ -23,9 +51,12 @@ export const PRODUCTS: Product[] = [
     description:
       'Diseñada para confeccionistas que necesitan ritmo constante y puntada estable. Ideal para prendas en serie, con mesa reforzada y motor de bajo consumo.',
     priceLabel: 'Consultar precio',
-    featured: true,
+    featured: false,
     specs: ['Puntada recta', 'Uso industrial', 'Motor servo opcional', 'Garantía local'],
-    image: '/assets/logo-costuras-programadas.jpg',
+    images: [
+      '/assets/products/recta-industrial-stitchpro-01.png',
+      '/assets/products/recta-industrial-stitchpro-02.jpg',
+    ],
   },
   {
     slug: 'overlock-4-hilos-pro',
@@ -38,7 +69,10 @@ export const PRODUCTS: Product[] = [
     priceLabel: 'Consultar precio',
     featured: true,
     specs: ['4 hilos', 'Diferencial ajustable', 'Cortador integrado', 'Uso intensivo'],
-    image: '/assets/logo-costuras-programadas.jpg',
+    images: [
+      '/assets/products/overlock-4-hilos-pro-01.png',
+      '/assets/products/overlock-4-hilos-pro-02.png',
+    ],
   },
   {
     slug: 'fileteadora-collarless',
@@ -51,7 +85,10 @@ export const PRODUCTS: Product[] = [
     priceLabel: 'Consultar precio',
     featured: true,
     specs: ['Remate profesional', 'Alimentación diferencial', 'Ajuste fino de tensión'],
-    image: '/assets/logo-costuras-programadas.jpg',
+    images: [
+      '/assets/products/fileteadora-collarless-01.jpg',
+      '/assets/products/fileteadora-collarless-02.png',
+    ],
   },
   {
     slug: 'tijeras-precision-oro',
@@ -64,7 +101,10 @@ export const PRODUCTS: Product[] = [
     priceLabel: 'Desde $189.000',
     featured: true,
     specs: ['Acero templado', 'Empuñadura ergonómica', 'Filo resharpable'],
-    image: '/assets/logo-costuras-programadas.jpg',
+    images: [
+      '/assets/products/tijeras-precision-oro-01.jpg',
+      '/assets/products/tijeras-precision-oro-02.jpg',
+    ],
   },
   {
     slug: 'kit-agujas-alfileres',
@@ -77,7 +117,10 @@ export const PRODUCTS: Product[] = [
     priceLabel: 'Desde $45.000',
     featured: false,
     specs: ['Múltiples calibres', 'Estuche organizado', 'Uso doméstico e industrial'],
-    image: '/assets/logo-costuras-programadas.jpg',
+    images: [
+      '/assets/products/kit-agujas-alfileres-01.jpg',
+      '/assets/products/kit-agujas-alfileres-02.jpg',
+    ],
   },
   {
     slug: 'regla-patronaje-60',
@@ -90,20 +133,20 @@ export const PRODUCTS: Product[] = [
     priceLabel: 'Desde $62.000',
     featured: false,
     specs: ['60 cm', 'Marcas de costura', 'Material rígido'],
-    image: '/assets/logo-costuras-programadas.jpg',
+    images: ['/assets/products/regla-patronaje-60-01.jpg'],
   },
   {
     slug: 'pie-prensatelas-universal',
     name: 'Set de prensatelas',
     category: 'accesorios',
     categoryLabel: 'Accesorios',
-    summary: 'Accesorios para ampliar el alcance de tu máquina recta.',
+    summary: 'Accesorios para ampliar el alcance de su máquina recta.',
     description:
       'Incluye pies para cierre, dobladillo y zig-zag básico. Compatible con la mayoría de rectas industriales estándar.',
     priceLabel: 'Desde $78.000',
     featured: false,
     specs: ['3 pies incluidos', 'Montaje rápido', 'Acero inoxidable'],
-    image: '/assets/logo-costuras-programadas.jpg',
+    images: ['/assets/products/pie-prensatelas-universal-01.jpg'],
   },
   {
     slug: 'mesa-corte-plegable',
@@ -116,7 +159,7 @@ export const PRODUCTS: Product[] = [
     priceLabel: 'Consultar precio',
     featured: false,
     specs: ['Estructura reforzada', 'Plegable', 'Altura de taller'],
-    image: '/assets/logo-costuras-programadas.jpg',
+    images: ['/assets/products/mesa-corte-plegable-01.jpg'],
   },
 ];
 
@@ -135,19 +178,35 @@ export function getProductsByCategory(category?: ProductCategory): Product[] {
   return PRODUCTS.filter((product) => product.category === category);
 }
 
+export function getRelatedProducts(product: Product, limit = 3): Product[] {
+  return PRODUCTS.filter(
+    (item) => item.slug !== product.slug && item.category === product.category,
+  ).slice(0, limit);
+}
+
 export const WHATSAPP_NUMBER = '573193399817';
 export const CONTACT_PHONE_DISPLAY = '319 339 9817';
 export const CONTACT_EMAIL = 'costurasprogramadas4@gmail.com';
 export const CONTACT_ADDRESS = 'Barrio La Alquería, Bogotá, Colombia';
+export const CONTACT_HOURS = 'Lunes a sábado · 8:00 a. m. – 6:00 p. m.';
 
 export function whatsappProductUrl(productName: string): string {
   const text = encodeURIComponent(
-    `Hola Costuras Programadas, me interesa el producto: ${productName}`,
+    `Hola Costuras Programadas, me interesa cotizar: ${productName}`,
   );
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
 }
 
 export function whatsappGeneralUrl(): string {
-  const text = encodeURIComponent('Hola Costuras Programadas, quiero información sobre sus productos.');
+  const text = encodeURIComponent(
+    'Hola Costuras Programadas, quiero información sobre sus productos.',
+  );
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+}
+
+export function whatsappQuoteUrl(need: string, city: string): string {
+  const text = encodeURIComponent(
+    `Hola Costuras Programadas,\n\nNecesito: ${need.trim()}\nCiudad: ${city.trim()}\n\nQuedo atenta a su cotización.`,
+  );
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
 }

@@ -6,19 +6,23 @@
 >
   <div class="header__inner">
     <a class="header__brand" routerLink="/" (click)="closeMenu()" aria-label="Costuras Programadas">
-      <span class="header__mark" aria-hidden="true">
-        <svg viewBox="0 0 48 48" width="38" height="38">
-          <circle cx="24" cy="24" r="21.5" fill="none" stroke="currentColor" stroke-width="1.4" />
-          <path
-            d="M15.5 29.5c3.8-9.5 8-14 14.5-16.5 1.5 5.5-1.2 11.5-6.2 15.5 5-.8 9.2 1.2 11.2 5"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-          />
-        </svg>
-      </span>
-      <span class="header__wordmark">Costuras Programadas</span>
+      <img
+        class="header__logo header__logo--light"
+        src="/assets/logo-nav-light.png"
+        alt="Costuras Programadas"
+        width="112"
+        height="112"
+        decoding="async"
+      />
+      <img
+        class="header__logo header__logo--dark"
+        src="/assets/logo-nav-dark.png"
+        alt=""
+        width="112"
+        height="112"
+        decoding="async"
+        aria-hidden="true"
+      />
     </a>
 
     <nav class="header__nav" [class.header__nav--open]="menuOpen()" aria-label="Principal">
@@ -26,26 +30,34 @@
         <a
           class="header__link"
           [routerLink]="link.path"
-          [fragment]="link.fragment"
           routerLinkActive="is-active"
-          [routerLinkActiveOptions]="{ exact: link.path === '/' && !link.fragment }"
+          [routerLinkActiveOptions]="{ exact: link.path === '/' }"
           (click)="closeMenu()"
         >
           {{ link.label }}
         </a>
       }
       <a class="header__cta" routerLink="/catalogo" (click)="closeMenu()">
-        Solicitar catálogo técnico
+        Ver catálogo
       </a>
     </nav>
+
+    <button
+      class="header__backdrop"
+      type="button"
+      aria-label="Cerrar menú"
+      [attr.aria-hidden]="!menuOpen()"
+      (click)="closeMenu()"
+    ></button>
 
     <button
       class="header__toggle"
       type="button"
       [attr.aria-expanded]="menuOpen()"
-      aria-label="Abrir menú"
+      [attr.aria-label]="menuOpen() ? 'Cerrar menú' : 'Abrir menú'"
       (click)="toggleMenu()"
     >
+      <span></span>
       <span></span>
       <span></span>
     </button>

@@ -1,4 +1,9 @@
-<section class="detail section">
+<section
+  class="detail section fabric fabric--patronaje"
+  [appParallax]="0.15"
+  [parallaxMax]="300"
+  parallaxMode="background"
+>
   <div class="container">
     @if (product(); as item) {
       <nav class="detail__crumbs" aria-label="Miga de pan" appReveal="fade">
@@ -10,8 +15,34 @@
       </nav>
 
       <div class="detail__grid">
-        <div class="detail__media" appReveal="scale">
-          <img [src]="item.image" [alt]="item.name" width="900" height="700" />
+        <div class="detail__gallery" appReveal="scale">
+          <div class="detail__media">
+            <img
+              [src]="item.images[activeImage()]"
+              [alt]="item.name"
+              width="900"
+              height="700"
+              fetchpriority="high"
+            />
+          </div>
+
+          @if (item.images.length > 1) {
+            <ul class="detail__thumbs" aria-label="Más fotos del producto">
+              @for (src of item.images; track src; let i = $index) {
+                <li>
+                  <button
+                    type="button"
+                    class="detail__thumb"
+                    [class.is-active]="activeImage() === i"
+                    [attr.aria-label]="'Ver foto ' + (i + 1)"
+                    (click)="selectImage(i)"
+                  >
+                    <img [src]="src" [alt]="''" width="160" height="120" loading="lazy" />
+                  </button>
+                </li>
+              }
+            </ul>
+          }
         </div>
 
         <div class="detail__copy" appReveal="up">
@@ -20,6 +51,7 @@
           <p class="detail__price">{{ item.priceLabel }}</p>
           <p class="detail__desc">{{ item.description }}</p>
 
+          <h2 class="detail__specs-title">Características</h2>
           <ul class="detail__specs">
             @for (spec of item.specs; track spec) {
               <li>{{ spec }}</li>
@@ -41,10 +73,53 @@
           </div>
         </div>
       </div>
+
+      @if (related().length) {
+        <section class="detail__related" aria-labelledby="related-title" appReveal="up">
+          <h2 class="detail__related-title" id="related-title">También le puede interesar</h2>
+          <ul class="detail__related-grid">
+            @for (rel of related(); track rel.slug) {
+              <li>
+                <a class="detail__related-card" [routerLink]="['/catalogo', rel.slug]">
+                  <img
+                    [src]="imageOf(rel)"
+                    [alt]="rel.name"
+                    width="400"
+                    height="300"
+                    loading="lazy"
+                  />
+                  <div>
+                    <p>{{ rel.categoryLabel }}</p>
+                    <h3>{{ rel.name }}</h3>
+                    <span>{{ rel.priceLabel }}</span>
+                  </div>
+                </a>
+              </li>
+            }
+          </ul>
+        </section>
+      }
+
+      <div class="detail__sticky" aria-hidden="false">
+        <div class="detail__sticky-inner">
+          <div>
+            <p class="detail__sticky-name">{{ item.name }}</p>
+            <p class="detail__sticky-price">{{ item.priceLabel }}</p>
+          </div>
+          <a
+            class="btn btn--primary detail__sticky-btn"
+            [href]="whatsappHref()"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Cotizar por WhatsApp
+          </a>
+        </div>
+      </div>
     } @else {
       <div class="detail__empty" appReveal="up">
         <h1>Producto no encontrado</h1>
-        <p>Puede que el enlace haya cambiado. Revisa el catálogo completo.</p>
+        <p>Es posible que el enlace haya cambiado. Revise el catálogo completo.</p>
         <a class="btn btn--primary" routerLink="/catalogo">Volver al catálogo</a>
       </div>
     }

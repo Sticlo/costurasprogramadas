@@ -4,6 +4,7 @@ import { Home } from './pages/home/home';
 import { Catalog } from './pages/catalog/catalog';
 import { ProductDetail } from './pages/product-detail/product-detail';
 import { Contact } from './pages/contact/contact';
+import { Nosotros } from './pages/nosotros/nosotros';
 
 export const routes: Routes = [
   {
@@ -13,6 +14,7 @@ export const routes: Routes = [
       { path: '', component: Home },
       { path: 'catalogo', component: Catalog },
       { path: 'catalogo/:slug', component: ProductDetail },
+      { path: 'nosotros', component: Nosotros },
       { path: 'contacto', component: Contact },
       { path: '**', redirectTo: '' },
     ],

@@ -12,10 +12,10 @@ export class FloatingActions {
   protected readonly whatsapp = whatsappGeneralUrl();
 
   protected readonly quickPrompts = [
-    '¿Qué recta industrial me conviene para producción diaria?',
-    'Necesito overlock para tejidos stretch',
-    '¿Ofrecen servicio técnico en Bogotá?',
-    'Quiero cotizar maquinaria completa para un taller nuevo',
+    'Quiero una máquina recta para producción diaria',
+    'Necesito overlock para tela elástica',
+    '¿Dan servicio técnico en Bogotá?',
+    'Quiero cotizar máquinas para un taller nuevo',
   ];
 
   openAiPanel(): void {
@@ -28,7 +28,7 @@ export class FloatingActions {
 
   askAi(prompt: string): void {
     const text = encodeURIComponent(
-      `Hola Costuras Programadas, necesito soporte técnico con IA:\n\n${prompt}`,
+      `Hola Costuras Programadas, necesito ayuda:\n\n${prompt}`,
     );
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, '_blank', 'noopener,noreferrer');
   }

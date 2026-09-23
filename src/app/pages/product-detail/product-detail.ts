@@ -1,18 +1,21 @@
-import { Component, computed, effect, inject } from '@angular/core';
+import { Component, computed, effect, inject, signal } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs';
 import {
   getProductBySlug,
+  getRelatedProducts,
+  productImage,
   whatsappProductUrl,
   CONTACT_EMAIL,
 } from '../../data/products';
+import { Parallax } from '../../directives/parallax';
 import { Reveal } from '../../directives/reveal';
 import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-product-detail',
-  imports: [RouterLink, Reveal],
+  imports: [RouterLink, Reveal, Parallax],
   templateUrl: './product-detail.html',
   styleUrl: './product-detail.css',
 })
@@ -26,11 +29,18 @@ export class ProductDetail {
   );
 
   protected readonly product = computed(() => getProductBySlug(this.slug()));
+  protected readonly related = computed(() => {
+    const item = this.product();
+    return item ? getRelatedProducts(item) : [];
+  });
+  protected readonly activeImage = signal(0);
   protected readonly email = CONTACT_EMAIL;
 
   constructor() {
     effect(() => {
       const item = this.product();
+      this.activeImage.set(0);
+
       if (!item) {
         this.seo.update({
           title: 'Producto no encontrado',
@@ -40,11 +50,13 @@ export class ProductDetail {
         return;
       }
 
+      const image = productImage(item);
+
       this.seo.update({
         title: item.name,
         description: item.summary,
         path: `/catalogo/${item.slug}`,
-        image: item.image,
+        image,
         type: 'product',
       });
 
@@ -53,7 +65,7 @@ export class ProductDetail {
         '@type': 'Product',
         name: item.name,
         description: item.description,
-        image: `https://costurasprogramadas.com${item.image}`,
+        image: item.images.map((src) => `https://costurasprogramadas.com${src}`),
         brand: {
           '@type': 'Brand',
           name: 'Costuras Programadas',
@@ -69,8 +81,14 @@ export class ProductDetail {
     });
   }
 
+  protected selectImage(index: number): void {
+    this.activeImage.set(index);
+  }
+
   protected whatsappHref(): string {
     const item = this.product();
     return item ? whatsappProductUrl(item.name) : '#';
   }
+
+  protected imageOf = productImage;
 }

@@ -1,13 +1,35 @@
-<section class="benefits section" aria-labelledby="benefits-title">
+<section
+  class="benefits section fabric fabric--linen has-deco"
+  aria-labelledby="benefits-title"
+  [appParallax]="0.2"
+  [parallaxMax]="160"
+  parallaxMode="background"
+>
+  <svg
+    class="seam-deco seam-deco--red benefits__seam"
+    viewBox="0 0 1000 220"
+    aria-hidden="true"
+    [appParallax]="-0.18"
+    [parallaxMax]="140"
+  >
+    <path d="M-20 60 C200 170 360 20 560 110 S860 190 1020 80" />
+  </svg>
+
   <div class="container">
-    <header class="benefits__intro" appReveal="up">
-      <span class="section__label">Por qué nosotros</span>
-      <h2 class="section__title" id="benefits-title">Venta con criterio, no solo catálogo.</h2>
+    <header class="benefits__intro" appReveal="blur" [appParallax]="-0.05" [parallaxMax]="32">
+      <span class="section__label stitch-draw">Por qué nosotros</span>
+      <h2 class="section__title" id="benefits-title">Compra con criterio, no solo catálogo.</h2>
     </header>
 
     <ul class="benefits__list">
       @for (item of items; track item.title; let i = $index) {
-        <li class="benefits__item" appReveal="up" [revealDelay]="i * 100">
+        <li
+          class="benefits__item"
+          appReveal="rise"
+          [revealDelay]="140 + i * 140"
+          [appParallax]="-0.03 * i"
+          [parallaxMax]="44"
+        >
           <span class="benefits__index">0{{ i + 1 }}</span>
           <h3 class="benefits__name">{{ item.title }}</h3>
           <p class="benefits__text">{{ item.text }}</p>

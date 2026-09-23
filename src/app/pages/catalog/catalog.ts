@@ -4,13 +4,16 @@ import {
   getProductsByCategory,
   ProductCategory,
   PRODUCTS,
+  whatsappProductUrl,
 } from '../../data/products';
+import { ExpandImage } from '../../directives/expand-image';
+import { Parallax } from '../../directives/parallax';
 import { Reveal } from '../../directives/reveal';
 import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-catalog',
-  imports: [RouterLink, Reveal],
+  imports: [RouterLink, Reveal, Parallax, ExpandImage],
   templateUrl: './catalog.html',
   styleUrl: './catalog.css',
 })
@@ -30,6 +33,14 @@ export class Catalog implements OnInit {
     return filter === 'todos' ? PRODUCTS : getProductsByCategory(filter);
   });
 
+  protected readonly resultLabel = computed(() => {
+    const count = this.products().length;
+    if (count === 0) {
+      return 'No hay productos en esta categoría';
+    }
+    return count === 1 ? '1 producto' : `${count} productos`;
+  });
+
   ngOnInit(): void {
     this.seo.update({
       title: 'Catálogo de maquinaria y herramientas',
@@ -41,5 +52,9 @@ export class Catalog implements OnInit {
 
   selectFilter(id: ProductCategory | 'todos'): void {
     this.selected.set(id);
+  }
+
+  whatsappFor(name: string): string {
+    return whatsappProductUrl(name);
   }
 }

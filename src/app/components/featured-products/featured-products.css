@@ -1,3 +1,8 @@
+.featured__seam {
+  top: 4rem;
+  right: -6rem;
+}
+
 .featured__intro {
   max-width: 36rem;
   margin-bottom: var(--space-6);
@@ -40,42 +45,58 @@
   height: 100%;
   object-fit: cover;
   object-position: center 30%;
-  transition: transform 1s var(--ease-out);
+  transition: transform 1.15s var(--ease-out);
+}
+
+.featured__card.reveal.is-visible .featured__media img {
+  animation: ken-burns 8s var(--ease-out) both;
 }
 
 .featured__card:hover .featured__media img {
   transform: scale(1.05);
+  animation: none;
 }
 
 .featured__body {
   display: grid;
-  gap: 0.55rem;
-  padding: 1.35rem 1.35rem 1.5rem;
+  gap: 0.65rem;
+  padding: 1.5rem 1.5rem 1.65rem;
 }
 
 .featured__category {
   color: var(--color-accent);
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.22em;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
 .featured__name {
-  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  font-size: clamp(1.5rem, 2.2vw, 1.9rem);
 }
 
 .featured__summary {
   color: var(--color-muted);
-  font-size: 0.95rem;
+  font-size: 1.05rem;
+  line-height: 1.55;
 }
 
 .featured__price {
+  margin-top: 0.25rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--color-ink);
+}
+
+.featured__more {
   margin-top: 0.35rem;
-  font-size: 0.82rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  color: var(--color-accent);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
 }
 
 .featured__cta {
@@ -87,5 +108,14 @@
 @media (max-width: 720px) {
   .featured__grid {
     grid-template-columns: 1fr;
+  }
+
+  .featured__cta {
+    justify-content: stretch;
+  }
+
+  .featured__cta .btn {
+    width: 100%;
+    max-width: none;
   }
 }

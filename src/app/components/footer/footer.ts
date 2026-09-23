@@ -6,10 +6,12 @@ import {
   CONTACT_PHONE_DISPLAY,
   whatsappGeneralUrl,
 } from '../../data/products';
+import { Parallax } from '../../directives/parallax';
+import { Reveal } from '../../directives/reveal';
 
 @Component({
   selector: 'app-footer',
-  imports: [RouterLink],
+  imports: [RouterLink, Reveal, Parallax],
   templateUrl: './footer.html',
   styleUrl: './footer.css',
 })

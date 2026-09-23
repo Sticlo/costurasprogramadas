@@ -1,14 +1,18 @@
 :root {
   --color-ink: #111111;
-  --color-ink-soft: #3a3a3a;
-  --color-muted: #6f6f6f;
-  --color-line: #e4e4e4;
+  --color-ink-soft: #2e2e2e;
+  --color-muted: #4f4f4f;
+  --color-line: #dcdcdc;
   --color-surface: #ffffff;
   --color-canvas: #f7f5f2;
   --color-canvas-deep: #ebe7e1;
   --color-accent: #c8102e;
   --color-accent-hover: #a50d25;
+  --color-accent-deep: #9b1528;
+  --color-gold: #c4a06e;
+  --color-gold-soft: #e2c48a;
   --color-silver: #9a9ea6;
+  --color-night: #0b0b0c;
 
   --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-body: 'Outfit', 'Segoe UI', sans-serif;
@@ -21,9 +25,10 @@
   --space-6: 5rem;
   --space-7: 7.5rem;
 
-  --radius-sm: 2px;
+  --radius-sm: 4px;
   --max-width: 72rem;
-  --header-height: 4.75rem;
+  --header-height: 5.75rem;
+  --touch-min: 3.25rem;
 
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --shadow-soft: 0 18px 50px rgba(17, 17, 17, 0.08);
@@ -48,9 +53,9 @@ body {
     radial-gradient(ellipse 60% 40% at 0% 100%, rgba(154, 158, 166, 0.12), transparent 45%),
     linear-gradient(180deg, var(--color-canvas) 0%, var(--color-surface) 40%, var(--color-canvas) 100%);
   font-family: var(--font-body);
-  font-weight: 300;
-  font-size: 1rem;
-  line-height: 1.6;
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -71,14 +76,19 @@ button {
   cursor: pointer;
 }
 
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
 h1,
 h2,
 h3 {
   margin: 0;
   font-family: var(--font-display);
   font-weight: 500;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
 }
 
 p {
@@ -100,26 +110,132 @@ ul {
   padding-block: var(--space-7);
 }
 
+/*
+  Atelier fabrics — painted as real background layers (not ::before),
+  so the weave/motifs stay visible behind content.
+*/
+.fabric {
+  --fabric-wash: rgba(251, 249, 246, 0.38);
+  --fabric-tile: 16rem;
+  position: relative;
+  background-color: #f4efe8;
+  background-image:
+    linear-gradient(var(--fabric-wash), var(--fabric-wash)),
+    var(--fabric-image);
+  background-size: auto, var(--fabric-tile);
+  background-repeat: repeat;
+  background-position:
+    center top,
+    center var(--parallax-bg, 0px);
+}
+
+/* Decorative seam that floats on its own parallax layer. */
+.seam-deco {
+  position: absolute;
+  z-index: 0;
+  width: min(62rem, 90vw);
+  height: auto;
+  pointer-events: none;
+  color: var(--color-gold);
+  opacity: 0.55;
+  will-change: translate;
+}
+
+.seam-deco path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 10 9;
+}
+
+.seam-deco--red {
+  color: var(--color-accent-deep);
+  opacity: 0.28;
+}
+
+.has-deco {
+  overflow: clip;
+}
+
+.has-deco > .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Photo frames with room for the image to drift inside. */
+.parallax-frame img {
+  height: calc(100% + 3.5rem) !important;
+  margin-top: -1.75rem;
+  will-change: translate;
+}
+
+.fabric--linen {
+  --fabric-image: url('/assets/patterns/tex-linen-strong.jpg');
+  --fabric-tile: 15rem;
+  --fabric-wash: rgba(251, 249, 246, 0.32);
+  background-color: #f0ebe3;
+}
+
+.fabric--patronaje {
+  --fabric-image: url('/assets/patterns/tex-patronaje-strong.jpg');
+  --fabric-tile: 18rem;
+  --fabric-wash: rgba(252, 250, 247, 0.28);
+  background-color: #f7f3ec;
+}
+
+.fabric--stitches {
+  --fabric-image: url('/assets/patterns/tex-stitches.jpg');
+  --fabric-tile: 17rem;
+  --fabric-wash: rgba(251, 249, 246, 0.34);
+  background-color: #f2ece4;
+}
+
+.fabric--motifs {
+  --fabric-image: url('/assets/patterns/tex-atelier-motifs.jpg');
+  --fabric-tile: 22rem;
+  --fabric-wash: rgba(251, 249, 246, 0.22);
+  background-color: #f7f3ed;
+}
+
+.fabric--herringbone {
+  --fabric-image: url('/assets/patterns/fabric-herringbone.jpg');
+  --fabric-tile: 16rem;
+  --fabric-wash: rgba(243, 239, 233, 0.4);
+  background-color: #efe9e0;
+}
+
+@media (max-width: 720px) {
+  .fabric {
+    --fabric-tile: 12.5rem;
+  }
+
+  .fabric--motifs {
+    --fabric-tile: 16rem;
+  }
+}
+
 .section__label {
   display: block;
   margin-bottom: var(--space-2);
   color: var(--color-accent);
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.28em;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
 .section__title {
   max-width: 18ch;
-  font-size: clamp(2.25rem, 4vw, 3.5rem);
+  font-size: clamp(2.4rem, 4.2vw, 3.6rem);
 }
 
 .section__lead {
-  max-width: 36ch;
+  max-width: 42ch;
   margin-top: var(--space-3);
   color: var(--color-muted);
-  font-size: 1.05rem;
+  font-size: 1.2rem;
+  line-height: 1.65;
 }
 
 .btn {
@@ -127,14 +243,14 @@ ul {
   align-items: center;
   justify-content: center;
   gap: 0.65rem;
-  min-height: 3rem;
-  padding: 0.85rem 1.6rem;
+  min-height: var(--touch-min);
+  padding: 0.95rem 1.75rem;
   border: 1px solid transparent;
   border-radius: var(--radius-sm);
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: none;
   transition:
     background-color 0.35s var(--ease-out),
     color 0.35s var(--ease-out),
@@ -147,7 +263,7 @@ ul {
 }
 
 .btn--primary {
-  background: var(--color-accent);
+  background: var(--color-accent-deep);
   color: #fff;
 }
 
@@ -198,13 +314,18 @@ ul {
 .reveal {
   opacity: 0;
   transition:
-    opacity 0.75s var(--ease-out),
-    transform 0.75s var(--ease-out);
-  will-change: opacity, transform;
+    opacity 0.9s var(--ease-out),
+    transform 0.9s var(--ease-out),
+    filter 0.9s var(--ease-out);
+  will-change: opacity, transform, filter;
 }
 
 .reveal--up {
-  transform: translateY(2rem);
+  transform: translateY(2.75rem);
+}
+
+.reveal--down {
+  transform: translateY(-2rem);
 }
 
 .reveal--fade {
@@ -212,16 +333,106 @@ ul {
 }
 
 .reveal--left {
-  transform: translateX(-1.5rem);
+  transform: translateX(-2.25rem);
+}
+
+.reveal--right {
+  transform: translateX(2.25rem);
 }
 
 .reveal--scale {
-  transform: scale(0.96);
+  transform: scale(0.9);
+}
+
+.reveal--blur {
+  transform: translateY(1.5rem);
+  filter: blur(8px);
+}
+
+.reveal--rise {
+  transform: translateY(3.5rem) scale(0.96);
 }
 
 .reveal.is-visible {
   opacity: 1;
   transform: none;
+  filter: none;
+}
+
+/* Decorative stitch that draws when a section enters view */
+.stitch-draw {
+  position: relative;
+}
+
+.stitch-draw::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -0.55rem;
+  width: 100%;
+  max-width: 7.5rem;
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--color-accent) 0 0.55rem,
+    transparent 0.55rem 0.95rem
+  );
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1s var(--ease-out) 0.15s;
+}
+
+.stitch-draw.is-visible::after,
+.reveal.is-visible .stitch-draw::after {
+  transform: scaleX(1);
+}
+
+.section__label.stitch-draw {
+  display: inline-block;
+  margin-bottom: calc(var(--space-2) + 0.55rem);
+}
+
+@media (max-width: 720px) {
+  :root {
+    --header-height: 4.75rem;
+    --space-6: 3.5rem;
+    --space-7: 4.5rem;
+  }
+
+  body {
+    font-size: 1.05rem;
+  }
+
+  .container {
+    width: min(100% - 1.5rem, var(--max-width));
+  }
+
+  .section {
+    padding-block: var(--space-6);
+  }
+
+  .section__title {
+    max-width: none;
+    font-size: clamp(2rem, 8vw, 2.6rem);
+  }
+
+  .section__lead {
+    font-size: 1.08rem;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 24rem;
+  }
+
+  .reveal--up {
+    transform: translateY(2rem);
+  }
+
+  .reveal--left,
+  .reveal--right {
+    transform: translateY(1.75rem);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -229,9 +440,20 @@ ul {
     scroll-behavior: auto;
   }
 
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+  }
+
   .reveal {
     opacity: 1;
     transform: none;
+    filter: none;
+    transition: none;
+  }
+
+  .stitch-draw::after {
+    transform: scaleX(1);
     transition: none;
   }
 

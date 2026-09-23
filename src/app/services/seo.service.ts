@@ -17,7 +17,7 @@ export class SeoService {
   private readonly document = inject(DOCUMENT);
   private readonly siteName = 'Costuras Programadas';
   private readonly origin = 'https://costurasprogramadas.com';
-  private readonly defaultImage = '/assets/logo-costuras-programadas.jpg';
+  private readonly defaultImage = '/assets/logo-nav-light.png';
 
   update(seo: PageSeo): void {
     const fullTitle = seo.title.includes(this.siteName)

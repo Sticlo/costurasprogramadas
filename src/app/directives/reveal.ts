@@ -8,6 +8,8 @@ import {
   Renderer2,
 } from '@angular/core';
 
+export type RevealKind = 'up' | 'down' | 'fade' | 'left' | 'right' | 'scale' | 'blur' | 'rise';
+
 @Directive({
   selector: '[appReveal]',
 })
@@ -16,7 +18,7 @@ export class Reveal implements OnDestroy {
   private readonly renderer = inject(Renderer2);
   private observer?: IntersectionObserver;
 
-  readonly appReveal = input<'up' | 'fade' | 'left' | 'scale'>('up');
+  readonly appReveal = input<RevealKind>('up');
   readonly revealDelay = input(0);
 
   constructor() {
@@ -28,6 +30,11 @@ export class Reveal implements OnDestroy {
       const delay = this.revealDelay();
       if (delay > 0) {
         this.renderer.setStyle(native, 'transition-delay', `${delay}ms`);
+      }
+
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        this.renderer.addClass(native, 'is-visible');
+        return;
       }
 
       if (typeof IntersectionObserver === 'undefined') {
@@ -44,7 +51,7 @@ export class Reveal implements OnDestroy {
             }
           }
         },
-        { threshold: 0.14, rootMargin: '0px 0px -8% 0px' },
+        { threshold: 0.12, rootMargin: '0px 0px -10% 0px' },
       );
       this.observer.observe(native);
     });
