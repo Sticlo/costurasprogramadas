@@ -4,11 +4,14 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "prebuild": "node scripts/generate-seo.mjs",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:costurasprogramadas": "node dist/costurasprogramadas/server/server.mjs",
-    "deploy": "npm run build && npx firebase-tools deploy --only hosting"
+    "deploy": "npm run build && npx firebase-tools deploy --only hosting",
+    "deploy:chat": "npx firebase-tools deploy --only functions",
+    "chat:emulator": "node scripts/export-catalog.mjs && npx firebase-tools emulators:start --only functions"
   },
   "private": true,
   "packageManager": "npm@11.12.1",

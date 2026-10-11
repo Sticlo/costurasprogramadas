@@ -1,17 +1,34 @@
-import { Component, computed, effect, inject, signal } from '@angular/core';
+import {
+  afterNextRender,
+  Component,
+  computed,
+  DestroyRef,
+  effect,
+  ElementRef,
+  inject,
+  signal,
+} from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs';
 import {
   getProductBySlug,
   getRelatedProducts,
+  productBrand,
   productImage,
   whatsappProductUrl,
   CONTACT_EMAIL,
 } from '../../data/products';
 import { Parallax } from '../../directives/parallax';
 import { Reveal } from '../../directives/reveal';
-import { SeoService } from '../../services/seo.service';
+import { absoluteUrl, SeoService } from '../../services/seo.service';
+
+const DESCRIPTION_SUFFIX = ' Asesoría en Bogotá y envíos a todo Colombia. Cotice por WhatsApp.';
+
+function productDescription(summary: string): string {
+  const full = `${summary}${DESCRIPTION_SUFFIX}`;
+  return full.length <= 165 ? full : summary;
+}
 
 @Component({
   selector: 'app-product-detail',
@@ -37,6 +54,23 @@ export class ProductDetail {
   protected readonly email = CONTACT_EMAIL;
 
   constructor() {
+    const host = inject<ElementRef<HTMLElement>>(ElementRef).nativeElement;
+    const destroyRef = inject(DestroyRef);
+
+    afterNextRender(() => {
+      const bar = host.querySelector<HTMLElement>('.detail__sticky');
+      if (!bar) return;
+      const root = document.documentElement;
+      const observer = new ResizeObserver(() =>
+        root.style.setProperty('--sticky-cta-h', `${bar.offsetHeight}px`),
+      );
+      observer.observe(bar);
+      destroyRef.onDestroy(() => {
+        observer.disconnect();
+        root.style.removeProperty('--sticky-cta-h');
+      });
+    });
+
     effect(() => {
       const item = this.product();
       this.activeImage.set(0);
@@ -46,38 +80,45 @@ export class ProductDetail {
           title: 'Producto no encontrado',
           description: 'El producto solicitado no está disponible en el catálogo.',
           path: '/catalogo',
+          noindex: true,
         });
         return;
       }
 
-      const image = productImage(item);
+      const path = `/catalogo/${item.slug}`;
+      const brand = productBrand(item);
 
       this.seo.update({
-        title: item.name,
-        description: item.summary,
-        path: `/catalogo/${item.slug}`,
-        image,
+        title: `${item.name} en Bogotá`,
+        description: productDescription(item.summary),
+        path,
+        image: productImage(item),
+        imageAlt: item.name,
         type: 'product',
       });
 
-      this.seo.setJsonLd({
-        '@context': 'https://schema.org',
-        '@type': 'Product',
-        name: item.name,
-        description: item.description,
-        image: item.images.map((src) => `https://costurasprogramadas.com${src}`),
-        brand: {
-          '@type': 'Brand',
-          name: 'Costuras Programadas',
+      this.seo.setJsonLd([
+        {
+          '@context': 'https://schema.org',
+          '@type': 'Product',
+          name: item.name,
+          description: item.description,
+          url: absoluteUrl(path),
+          image: item.images.map(absoluteUrl),
+          category: 'Máquinas de coser',
+          ...(brand && { brand: { '@type': 'Brand', name: brand } }),
+          additionalProperty: item.specs.map((spec) => ({
+            '@type': 'PropertyValue',
+            name: 'Característica',
+            value: spec,
+          })),
         },
-        category: item.categoryLabel,
-        offers: {
-          '@type': 'Offer',
-          availability: 'https://schema.org/InStock',
-          priceCurrency: 'COP',
-          url: `https://costurasprogramadas.com/catalogo/${item.slug}`,
-        },
-      });
+        this.seo.breadcrumbs([
+          { name: 'Inicio', path: '/' },
+          { name: 'Catálogo', path: '/catalogo' },
+          { name: item.name, path },
+        ]),
+      ]);
     });
   }
 

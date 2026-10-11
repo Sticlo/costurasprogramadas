@@ -4,12 +4,12 @@ import { FeaturedProducts } from '../../components/featured-products/featured-pr
 import { Benefits } from '../../components/benefits/benefits';
 import { StitchScroll } from '../../components/stitch-scroll/stitch-scroll';
 import { AtelierExpand } from '../../components/atelier-expand/atelier-expand';
+import { CommonProblems } from '../../components/common-problems/common-problems';
 import { SeoService } from '../../services/seo.service';
-import { CONTACT_ADDRESS, CONTACT_EMAIL, CONTACT_PHONE_DISPLAY } from '../../data/products';
 
 @Component({
   selector: 'app-home',
-  imports: [Hero, StitchScroll, FeaturedProducts, AtelierExpand, Benefits],
+  imports: [Hero, StitchScroll, FeaturedProducts, AtelierExpand, CommonProblems, Benefits],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
@@ -18,24 +18,11 @@ export class Home implements OnInit {
 
   ngOnInit(): void {
     this.seo.update({
-      title: 'Ingeniería textil y maquinaria de confección',
+      title: 'Máquinas de coser industriales y familiares en Bogotá',
       description:
-        'Costuras Programadas: maquinaria y herramientas de precisión para talleres de alto rendimiento en Colombia. Asesoría técnica y catálogo especializado.',
+        'Venta de máquinas de coser industriales y familiares en Bogotá: planas, fileteadoras, collarines y bordadoras JACK, KANSEW y UNION. Envíos a todo Colombia.',
       path: '/',
-    });
-    this.seo.setJsonLd({
-      '@context': 'https://schema.org',
-      '@type': 'Organization',
-      name: 'Costuras Programadas',
-      url: 'https://costurasprogramadas.com',
-      email: CONTACT_EMAIL,
-      telephone: `+57 ${CONTACT_PHONE_DISPLAY}`,
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Bogotá',
-        addressCountry: 'CO',
-        streetAddress: CONTACT_ADDRESS,
-      },
+      imageAlt: 'Costuras Programadas: máquinas de coser industriales y familiares en Bogotá',
     });
   }
 }

@@ -1,0 +1,26 @@
+<section class="problems section" aria-labelledby="problems-title">
+  <div class="container problems__grid">
+    <header class="problems__intro" appReveal="left">
+      <span class="section__label problems__label">Soluciones</span>
+      <h2 class="section__title problems__title" id="problems-title">
+        ¿Su máquina le está fallando?
+      </h2>
+      <p class="problems__lead">
+        Busque su problema y pruebe la solución paso a paso. Si la falla sigue, nosotros la
+        resolvemos.
+      </p>
+      <a class="btn btn--primary problems__btn" routerLink="/soluciones">Ver todas las soluciones</a>
+    </header>
+
+    <ul class="problems__list" appReveal="right" [revealDelay]="100">
+      @for (item of problems; track item.slug) {
+        <li>
+          <a class="problems__link" [routerLink]="['/soluciones', item.slug]">
+            <span>{{ item.problem }}</span>
+            <span class="problems__arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+      }
+    </ul>
+  </div>
+</section>

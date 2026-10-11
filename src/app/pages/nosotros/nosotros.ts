@@ -13,11 +13,18 @@ export class Nosotros implements OnInit {
 
   ngOnInit(): void {
     this.seo.update({
-      title: 'Nosotros',
+      title: 'Nosotros: expertos en máquinas de coser en Bogotá',
       description:
-        'Conozca Costuras Programadas: maquinaria y herramientas de confección con asesoría cercana en Bogotá y Colombia.',
+        'Conozca a Costuras Programadas: historia, equipo en la Feria CREATEX 2026 y nuestra misión de acompañar a talleres de confección en Bogotá y toda Colombia.',
       path: '/nosotros',
-      image: '/assets/workshop-taller.jpg',
+      image: '/assets/equipo-createx-2026.jpg',
+      imageAlt: 'Equipo de Costuras Programadas en su stand de la Feria CREATEX 2026',
     });
+    this.seo.setJsonLd(
+      this.seo.breadcrumbs([
+        { name: 'Inicio', path: '/' },
+        { name: 'Nosotros', path: '/nosotros' },
+      ]),
+    );
   }
 }

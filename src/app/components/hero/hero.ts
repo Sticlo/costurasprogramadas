@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { whatsappGeneralUrl } from '../../data/products';
-import { Parallax } from '../../directives/parallax';
 
 @Component({
   selector: 'app-hero',
-  imports: [RouterLink, Parallax],
+  imports: [RouterLink],
   templateUrl: './hero.html',
   styleUrl: './hero.css',
 })

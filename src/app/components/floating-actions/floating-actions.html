@@ -1,32 +1,89 @@
-<div class="fab">
+<div class="fab" [class.is-open]="panelOpen()">
   @if (panelOpen()) {
-    <aside class="fab__panel" aria-label="Ayuda para elegir máquina">
+    <div class="fab__backdrop" aria-hidden="true" (click)="closePanel()"></div>
+    <aside class="fab__panel" aria-label="Asistente virtual">
       <header class="fab__panel-head">
         <div>
-          <p class="fab__panel-kicker">Ayuda rápida</p>
-          <h2 class="fab__panel-title">¿Qué necesita?</h2>
+          <p class="fab__panel-kicker">Asistente virtual</p>
+          <h2 class="fab__panel-title">¿En qué le ayudo?</h2>
         </div>
         <button type="button" class="fab__panel-close" aria-label="Cerrar" (click)="closePanel()">
           ×
         </button>
       </header>
 
-      <p class="fab__panel-lead">
-        Toque una opción y le abrimos WhatsApp con el mensaje listo para nuestro equipo.
-      </p>
-
-      <ul class="fab__prompts">
-        @for (prompt of quickPrompts; track prompt) {
-          <li>
-            <button type="button" class="fab__prompt" (click)="askAi(prompt)">
-              {{ prompt }}
-            </button>
-          </li>
+      <div class="fab__messages" #list role="log" aria-live="polite">
+        @for (msg of messages(); track $index) {
+          <p class="fab__msg" [class.fab__msg--user]="msg.role === 'user'">
+            @for (part of msg.parts; track $index) {
+              @if (part.href && part.internal) {
+                <a [routerLink]="part.href" (click)="onLinkClick()">{{ part.text }}</a>
+              } @else if (part.href) {
+                <a [href]="part.href" target="_blank" rel="noopener noreferrer">{{ part.text }}</a>
+              } @else {
+                <span>{{ part.text }}</span>
+              }
+            }
+          </p>
         }
-      </ul>
+
+        @if (sending()) {
+          <p class="fab__msg fab__typing" aria-label="Escribiendo">
+            <span></span><span></span><span></span>
+          </p>
+        }
+
+        @if (hasUserMessages() && !sending()) {
+          <button type="button" class="fab__panel-reset" (click)="resetChat()">
+            Empezar una nueva conversación
+          </button>
+        }
+
+        @if (!hasUserMessages()) {
+          <ul class="fab__prompts">
+            @for (prompt of quickPrompts; track prompt) {
+              <li>
+                <button type="button" class="fab__prompt" (click)="send(prompt)">
+                  {{ prompt }}
+                </button>
+              </li>
+            }
+          </ul>
+        }
+      </div>
+
+      <form class="fab__composer" (submit)="submit($event)">
+        <textarea
+          #input
+          class="fab__input"
+          rows="1"
+          maxlength="1000"
+          placeholder="Escriba su pregunta…"
+          aria-label="Escriba su pregunta"
+          [value]="draft()"
+          (input)="draft.set($any($event.target).value)"
+          (keydown.enter)="onEnter($event)"
+        ></textarea>
+        <button
+          type="submit"
+          class="fab__send"
+          aria-label="Enviar pregunta"
+          [disabled]="sending() || !draft().trim()"
+        >
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true">
+            <path
+              d="M4 12h14M13 6l6 6-6 6"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </form>
 
       <a class="fab__panel-cta" [href]="whatsapp" target="_blank" rel="noopener noreferrer">
-        Ir directo a WhatsApp · {{ phone }}
+        ¿Prefiere una persona? WhatsApp {{ phone }}
       </a>
     </aside>
   }
@@ -36,7 +93,7 @@
       type="button"
       class="fab__btn fab__btn--ai"
       [attr.aria-expanded]="panelOpen()"
-      aria-label="Abrir ayuda para elegir máquina"
+      aria-label="Abrir asistente virtual"
       (click)="openAiPanel()"
     >
       <span class="fab__icon" aria-hidden="true">
@@ -52,7 +109,10 @@
           <circle cx="14.8" cy="8.2" r="0.9" fill="currentColor" />
         </svg>
       </span>
-      <span class="fab__text">Ayuda</span>
+      <span class="fab__text">{{ panelOpen() ? 'Cerrar' : 'Ayuda' }}</span>
+      @if (unread()) {
+        <span class="fab__badge" aria-label="Respuesta nueva"></span>
+      }
     </button>
 
     <a

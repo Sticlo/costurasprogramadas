@@ -1,12 +1,27 @@
 {
+  "functions": {
+    "source": "functions",
+    "runtime": "nodejs22",
+    "ignore": ["node_modules", ".secret.local", ".env.local", "*.log"],
+    "predeploy": ["node \"$RESOURCE_DIR/../scripts/export-catalog.mjs\""]
+  },
   "hosting": {
     "public": "dist/costurasprogramadas/browser",
+    "cleanUrls": true,
+    "trailingSlash": false,
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
     ],
     "rewrites": [
+      {
+        "source": "/api/chat",
+        "function": {
+          "functionId": "chat",
+          "region": "us-central1"
+        }
+      },
       {
         "source": "**",
         "destination": "/index.html"

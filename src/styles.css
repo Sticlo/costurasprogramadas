@@ -185,9 +185,9 @@ ul {
 }
 
 .fabric--stitches {
-  --fabric-image: url('/assets/patterns/tex-stitches.jpg');
-  --fabric-tile: 17rem;
-  --fabric-wash: rgba(251, 249, 246, 0.34);
+  --fabric-image: url('/assets/patterns/stitches-seamless.svg');
+  --fabric-tile: 150px;
+  --fabric-wash: rgba(251, 249, 246, 0.42);
   background-color: #f2ece4;
 }
 
@@ -212,6 +212,10 @@ ul {
 
   .fabric--motifs {
     --fabric-tile: 16rem;
+  }
+
+  .fabric--stitches {
+    --fabric-tile: 130px;
   }
 }
 

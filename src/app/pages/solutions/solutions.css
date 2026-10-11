@@ -1,0 +1,120 @@
+.solutions {
+  padding-top: calc(var(--header-height) + 3rem);
+}
+
+.solutions__title {
+  max-width: 17ch;
+}
+
+.solutions__intro {
+  margin-bottom: var(--space-5);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid rgba(201, 164, 104, 0.35);
+}
+
+.solutions__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.solutions__list > li {
+  display: flex;
+}
+
+.solutions__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: clamp(1.5rem, 3vw, 2.1rem) clamp(1.35rem, 3vw, 2rem);
+  overflow: hidden;
+  border: 1px solid rgba(196, 160, 110, 0.35);
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0 12px 34px rgba(17, 17, 17, 0.05);
+  transition:
+    transform 0.35s var(--ease-out),
+    box-shadow 0.35s var(--ease-out),
+    border-color 0.35s var(--ease-out);
+}
+
+.solutions__card::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--color-gold), var(--color-gold-soft));
+}
+
+.solutions__card:hover,
+.solutions__card:focus-visible {
+  transform: translateY(-3px);
+  border-color: rgba(196, 160, 110, 0.7);
+  box-shadow: 0 20px 44px rgba(17, 17, 17, 0.09);
+}
+
+.solutions__index {
+  color: rgba(196, 160, 110, 0.75);
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-style: italic;
+  line-height: 1;
+}
+
+.solutions__name {
+  margin-top: 0.7rem;
+  font-size: clamp(1.45rem, 2.2vw, 1.75rem);
+  line-height: 1.22;
+}
+
+.solutions__teaser {
+  margin-top: 0.6rem;
+  color: var(--color-muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.solutions__more {
+  margin-top: auto;
+  padding-top: 1.1rem;
+  color: var(--color-accent-deep);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.solutions__cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3) var(--space-4);
+  margin-top: var(--space-5);
+  padding: clamp(1.75rem, 4vw, 2.5rem) clamp(1.5rem, 4vw, 3rem);
+  border-radius: 6px;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(196, 160, 110, 0.22), transparent 55%),
+    #0f1115;
+}
+
+.solutions__cta-title {
+  color: #fff;
+  font-size: clamp(1.7rem, 3vw, 2.2rem);
+}
+
+.solutions__cta-text {
+  max-width: 44ch;
+  margin-top: 0.5rem;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1.1rem;
+}
+
+@media (max-width: 760px) {
+  .solutions__list {
+    grid-template-columns: 1fr;
+  }
+
+  .solutions__cta .btn {
+    width: 100%;
+  }
+}

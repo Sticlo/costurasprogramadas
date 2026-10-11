@@ -12,26 +12,28 @@
         <div class="stitch__grain"></div>
         <svg class="stitch__seam" viewBox="0 0 1200 260" preserveAspectRatio="none">
           <defs>
-            <mask id="cp-seam-reveal" maskUnits="userSpaceOnUse" x="0" y="0" width="1200" height="260">
-              <path
-                class="stitch__mask"
-                d="M60 150 C235 134 390 166 560 148 C745 130 925 141 1140 152"
-              />
-            </mask>
+            <clipPath id="cp-seam-clip" clipPathUnits="userSpaceOnUse">
+              <rect class="stitch__clip" x="0" y="-60" width="0" height="380" />
+            </clipPath>
           </defs>
           <path
             class="stitch__track"
-            d="M60 150 C235 134 390 166 560 148 C745 130 925 141 1140 152"
+            d="M100 150 C250 134 400 166 560 148 C730 130 900 141 1100 152"
           />
           <path
             class="stitch__guide"
-            d="M60 150 C235 134 390 166 560 148 C745 130 925 141 1140 152"
+            d="M100 150 C250 134 400 166 560 148 C730 130 900 141 1100 152"
           />
-          <path
-            class="stitch__thread"
-            mask="url(#cp-seam-reveal)"
-            d="M60 150 C235 134 390 166 560 148 C745 130 925 141 1140 152"
-          />
+          <g clip-path="url(#cp-seam-clip)">
+            <path
+              class="stitch__thread-glow"
+              d="M100 150 C250 134 400 166 560 148 C730 130 900 141 1100 152"
+            />
+            <path
+              class="stitch__thread"
+              d="M100 150 C250 134 400 166 560 148 C730 130 900 141 1100 152"
+            />
+          </g>
         </svg>
 
         <div class="stitch__needle">

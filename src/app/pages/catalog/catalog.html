@@ -5,27 +5,34 @@
   parallaxMode="background"
 >
   <div class="container">
-    <header class="catalog__intro" appReveal="blur" [appParallax]="-0.08" [parallaxMax]="50">
+    <header class="catalog__intro" appReveal="blur">
       <span class="section__label stitch-draw">Catálogo</span>
       <h1 class="section__title catalog__title">Todo lo que el taller necesita.</h1>
       <p class="section__lead">
-        Elija una categoría y toque el producto para ver el detalle o pedir cotización por WhatsApp.
+        @if (showFilters) {
+          Elija una categoría y toque el producto para ver el detalle o pedir cotización por WhatsApp.
+        } @else {
+          Máquinas de coser industriales y familiares. Toque el producto para ver el detalle o
+          pedir cotización por WhatsApp.
+        }
       </p>
     </header>
 
     <div class="catalog__toolbar" appReveal="up" [revealDelay]="80">
-      <div class="catalog__filters" role="group" aria-label="Filtrar catálogo">
-        @for (filter of filters; track filter.id) {
-          <button
-            type="button"
-            class="catalog__chip"
-            [class.is-active]="selected() === filter.id"
-            (click)="selectFilter(filter.id)"
-          >
-            {{ filter.label }}
-          </button>
-        }
-      </div>
+      @if (showFilters) {
+        <div class="catalog__filters" role="group" aria-label="Filtrar catálogo">
+          @for (filter of filters; track filter.id) {
+            <button
+              type="button"
+              class="catalog__chip"
+              [class.is-active]="selected() === filter.id"
+              (click)="selectFilter(filter.id)"
+            >
+              {{ filter.label }}
+            </button>
+          }
+        </div>
+      }
       <p class="catalog__count" aria-live="polite">{{ resultLabel() }}</p>
     </div>
 
@@ -41,7 +48,7 @@
         @for (product of products(); track product.slug; let i = $index) {
           <li class="catalog__card" appReveal="rise" [revealDelay]="80 + (i % 6) * 90">
             <a [routerLink]="['/catalogo', product.slug]" class="catalog__link">
-              <div class="catalog__media parallax-frame" [appExpandImage]="8">
+              <div class="catalog__media" [appExpandImage]="8" [expandZoom]="1">
                 <img
                   [src]="product.images[0]"
                   [alt]="product.name"

@@ -1,58 +1,240 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://costurasprogramadas.com/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <loc>https://costurasprogramadas.web.app/</loc>
+    <lastmod>2026-09-30</lastmod>
   </url>
   <url>
-    <loc>https://costurasprogramadas.com/catalogo</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://costurasprogramadas.web.app/catalogo</loc>
+    <lastmod>2026-09-30</lastmod>
   </url>
   <url>
-    <loc>https://costurasprogramadas.com/contacto</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://costurasprogramadas.web.app/soluciones</loc>
+    <lastmod>2026-09-30</lastmod>
   </url>
   <url>
-    <loc>https://costurasprogramadas.com/catalogo/recta-industrial-stitchpro</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://costurasprogramadas.web.app/soluciones/maquina-no-traspasa-dril-tela-gruesa</loc>
+    <lastmod>2026-09-30</lastmod>
   </url>
   <url>
-    <loc>https://costurasprogramadas.com/catalogo/overlock-4-hilos-pro</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://costurasprogramadas.web.app/soluciones/maquina-salta-puntadas</loc>
+    <lastmod>2026-09-30</lastmod>
   </url>
   <url>
-    <loc>https://costurasprogramadas.com/catalogo/fileteadora-collarless</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://costurasprogramadas.web.app/soluciones/se-revienta-el-hilo-maquina-de-coser</loc>
+    <lastmod>2026-09-30</lastmod>
   </url>
   <url>
-    <loc>https://costurasprogramadas.com/catalogo/tijeras-precision-oro</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://costurasprogramadas.web.app/soluciones/maquina-hace-nudos-hilo-debajo-de-la-tela</loc>
+    <lastmod>2026-09-30</lastmod>
   </url>
   <url>
-    <loc>https://costurasprogramadas.com/catalogo/kit-agujas-alfileres</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://costurasprogramadas.web.app/soluciones/se-parte-la-aguja-maquina-de-coser</loc>
+    <lastmod>2026-09-30</lastmod>
   </url>
   <url>
-    <loc>https://costurasprogramadas.com/catalogo/regla-patronaje-60</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://costurasprogramadas.web.app/soluciones/fileteadora-no-corta-bien</loc>
+    <lastmod>2026-09-30</lastmod>
   </url>
   <url>
-    <loc>https://costurasprogramadas.com/catalogo/pie-prensatelas-universal</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://costurasprogramadas.web.app/soluciones/costura-queda-fruncida-o-arrugada</loc>
+    <lastmod>2026-09-30</lastmod>
   </url>
   <url>
-    <loc>https://costurasprogramadas.com/catalogo/mesa-corte-plegable</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://costurasprogramadas.web.app/soluciones/maquina-no-arrastra-la-tela</loc>
+    <lastmod>2026-09-30</lastmod>
+  </url>
+  <url>
+    <loc>https://costurasprogramadas.web.app/soluciones/maquina-dura-pesada-o-ruidosa</loc>
+    <lastmod>2026-09-30</lastmod>
+  </url>
+  <url>
+    <loc>https://costurasprogramadas.web.app/soluciones/que-maquina-comprar-para-taller-de-confeccion</loc>
+    <lastmod>2026-09-30</lastmod>
+  </url>
+  <url>
+    <loc>https://costurasprogramadas.web.app/soluciones/donde-arreglar-maquina-de-coser-en-bogota</loc>
+    <lastmod>2026-09-30</lastmod>
+  </url>
+  <url>
+    <loc>https://costurasprogramadas.web.app/nosotros</loc>
+    <lastmod>2026-09-30</lastmod>
+    <image:image>
+      <image:loc>https://costurasprogramadas.web.app/assets/equipo-createx-2026.jpg</image:loc>
+      <image:title>Equipo de Costuras Programadas en la Feria CREATEX 2026</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://costurasprogramadas.web.app/contacto</loc>
+    <lastmod>2026-09-30</lastmod>
+  </url>
+  <url>
+    <loc>https://costurasprogramadas.web.app/catalogo/plana-mecatronica-ks8800dh</loc>
+    <lastmod>2026-09-30</lastmod>
+    <image:image>
+      <image:loc>https://costurasprogramadas.web.app/assets/products/plana-mecatronica-ks8800dh-01.jpg</image:loc>
+      <image:title>Plana mecatrónica KS 8800D H</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://costurasprogramadas.web.app/assets/products/plana-mecatronica-ks8800dh-02.jpg</image:loc>
+      <image:title>Plana mecatrónica KS 8800D H</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://costurasprogramadas.web.app/catalogo/collarin-mecatronica-union-un500d-02bb</loc>
+    <lastmod>2026-09-30</lastmod>
+    <image:image>
+      <image:loc>https://costurasprogramadas.web.app/assets/products/collarin-union-un500d-02bb-01.jpg</image:loc>
+      <image:title>Collarín mecatrónica UNION UN-500D-02BB</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://costurasprogramadas.web.app/assets/products/collarin-union-un500d-02bb-02.jpg</image:loc>
+      <image:title>Collarín mecatrónica UNION UN-500D-02BB</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://costurasprogramadas.web.app/catalogo/plana-electronica-jack-a4c</loc>
+    <lastmod>2026-09-30</lastmod>
+    <image:image>
+      <image:loc>https://costurasprogramadas.web.app/assets/products/plana-electronica-jack-a4c-01.jpg</image:loc>
+      <image:title>Plana electrónica JACK A4C</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://costurasprogramadas.web.app/assets/products/plana-electronica-jack-a4c-02.jpg</image:loc>
+      <image:title>Plana electrónica JACK A4C</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://costurasprogramadas.web.app/catalogo/bordadora-industrial-anysew-2-cabezas</loc>
+    <lastmod>2026-09-30</lastmod>
+    <image:image>
+      <image:loc>https://costurasprogramadas.web.app/assets/products/bordadora-anysew-2-cabezas-01.jpg</image:loc>
+      <image:title>Bordadora industrial ANYSEW 2 cabezas</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://costurasprogramadas.web.app/assets/products/bordadora-anysew-2-cabezas-02.jpg</image:loc>
+      <image:title>Bordadora industrial ANYSEW 2 cabezas</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://costurasprogramadas.web.app/catalogo/fileteadora-kansew-ks504</loc>
+    <lastmod>2026-09-30</lastmod>
+    <image:image>
+      <image:loc>https://costurasprogramadas.web.app/assets/products/fileteadora-kansew-ks504-01.jpg</image:loc>
+      <image:title>Fileteadora KANSEW Special KS504</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://costurasprogramadas.web.app/assets/products/fileteadora-kansew-ks504-02.jpg</image:loc>
+      <image:title>Fileteadora KANSEW Special KS504</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://costurasprogramadas.web.app/catalogo/cortadora-vertical-jack</loc>
+    <lastmod>2026-09-30</lastmod>
+    <image:image>
+      <image:loc>https://costurasprogramadas.web.app/assets/products/cortadora-vertical-jack-01.jpg</image:loc>
+      <image:title>Cortadora vertical JACK</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://costurasprogramadas.web.app/assets/products/cortadora-vertical-jack-02.jpg</image:loc>
+      <image:title>Cortadora vertical JACK</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://costurasprogramadas.web.app/catalogo/cortadora-vertical-kansew</loc>
+    <lastmod>2026-09-30</lastmod>
+    <image:image>
+      <image:loc>https://costurasprogramadas.web.app/assets/products/cortadora-vertical-kansew-01.jpg</image:loc>
+      <image:title>Cortadora vertical KANSEW</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://costurasprogramadas.web.app/assets/products/cortadora-vertical-kansew-02.jpg</image:loc>
+      <image:title>Cortadora vertical KANSEW</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://costurasprogramadas.web.app/catalogo/recubridora-plana-pegasus-w600pc</loc>
+    <lastmod>2026-09-30</lastmod>
+    <image:image>
+      <image:loc>https://costurasprogramadas.web.app/assets/products/recubridora-pegasus-w600pc-01.jpg</image:loc>
+      <image:title>Recubridora plana PEGASUS W600 PC</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://costurasprogramadas.web.app/assets/products/recubridora-pegasus-w600pc-02.jpg</image:loc>
+      <image:title>Recubridora plana PEGASUS W600 PC</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://costurasprogramadas.web.app/catalogo/fileteadora-mecatronica-union-una-5</loc>
+    <lastmod>2026-09-30</lastmod>
+    <image:image>
+      <image:loc>https://costurasprogramadas.web.app/assets/products/fileteadora-union-una5-01.jpg</image:loc>
+      <image:title>Fileteadora mecatrónica UNION UNA-5 5 hilos</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://costurasprogramadas.web.app/assets/products/fileteadora-union-una5-02.jpg</image:loc>
+      <image:title>Fileteadora mecatrónica UNION UNA-5 5 hilos</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://costurasprogramadas.web.app/catalogo/fileteadora-electronica-jack-c5c-5-03</loc>
+    <lastmod>2026-09-30</lastmod>
+    <image:image>
+      <image:loc>https://costurasprogramadas.web.app/assets/products/fileteadora-jack-c5c-01.jpg</image:loc>
+      <image:title>Fileteadora electrónica JACK C5C-5-03</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://costurasprogramadas.web.app/assets/products/fileteadora-jack-c5c-02.jpg</image:loc>
+      <image:title>Fileteadora electrónica JACK C5C-5-03</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://costurasprogramadas.web.app/catalogo/collarin-mecatronica-kingter-kt500-02-ddi</loc>
+    <lastmod>2026-09-30</lastmod>
+    <image:image>
+      <image:loc>https://costurasprogramadas.web.app/assets/products/collarin-kingter-kt500-01.jpg</image:loc>
+      <image:title>Collarín mecatrónica KINGTER KT500-02-DDI</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://costurasprogramadas.web.app/assets/products/collarin-kingter-kt500-02.jpg</image:loc>
+      <image:title>Collarín mecatrónica KINGTER KT500-02-DDI</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://costurasprogramadas.web.app/catalogo/botonadora-mecatronica-jack-jk-t1377-g</loc>
+    <lastmod>2026-09-30</lastmod>
+    <image:image>
+      <image:loc>https://costurasprogramadas.web.app/assets/products/botonadora-jack-jk-t1377g-01.jpg</image:loc>
+      <image:title>Botonadora mecatrónica JACK JK-T1377-G</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://costurasprogramadas.web.app/assets/products/botonadora-jack-jk-t1377g-02.jpg</image:loc>
+      <image:title>Botonadora mecatrónica JACK JK-T1377-G</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://costurasprogramadas.web.app/catalogo/maquina-familiar-union-un-350</loc>
+    <lastmod>2026-09-30</lastmod>
+    <image:image>
+      <image:loc>https://costurasprogramadas.web.app/assets/products/maquina-familiar-union-un350-01.jpg</image:loc>
+      <image:title>Máquina de coser familiar UNION UN-350</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://costurasprogramadas.web.app/assets/products/maquina-familiar-union-un350-02.jpg</image:loc>
+      <image:title>Máquina de coser familiar UNION UN-350</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://costurasprogramadas.web.app/catalogo/maquina-familiar-brother-sm-1400</loc>
+    <lastmod>2026-09-30</lastmod>
+    <image:image>
+      <image:loc>https://costurasprogramadas.web.app/assets/products/maquina-familiar-brother-sm1400-01.jpg</image:loc>
+      <image:title>Máquina de coser familiar Brother SM 1400</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://costurasprogramadas.web.app/assets/products/maquina-familiar-brother-sm1400-02.jpg</image:loc>
+      <image:title>Máquina de coser familiar Brother SM 1400</image:title>
+    </image:image>
   </url>
 </urlset>

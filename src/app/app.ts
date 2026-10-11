@@ -2,6 +2,7 @@ import { ViewportScroller } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs';
+import { SeoService } from './services/seo.service';
 
 @Component({
   imports: [RouterOutlet],
@@ -14,6 +15,8 @@ export class App {
   private readonly viewport = inject(ViewportScroller);
 
   constructor() {
+    inject(SeoService).setSiteJsonLd();
+
     this.router.events
       .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
       .subscribe((event) => {

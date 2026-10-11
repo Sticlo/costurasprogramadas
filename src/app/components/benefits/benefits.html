@@ -1,40 +1,69 @@
 <section
-  class="benefits section fabric fabric--linen has-deco"
+  class="benefits section fabric fabric--linen"
   aria-labelledby="benefits-title"
   [appParallax]="0.2"
   [parallaxMax]="160"
   parallaxMode="background"
 >
-  <svg
-    class="seam-deco seam-deco--red benefits__seam"
-    viewBox="0 0 1000 220"
-    aria-hidden="true"
-    [appParallax]="-0.18"
-    [parallaxMax]="140"
-  >
-    <path d="M-20 60 C200 170 360 20 560 110 S860 190 1020 80" />
-  </svg>
-
   <div class="container">
-    <header class="benefits__intro" appReveal="blur" [appParallax]="-0.05" [parallaxMax]="32">
-      <span class="section__label stitch-draw">Por qué nosotros</span>
-      <h2 class="section__title" id="benefits-title">Compra con criterio, no solo catálogo.</h2>
+    <header class="benefits__intro" appReveal="blur">
+      <div>
+        <span class="section__label stitch-draw">Por qué nosotros</span>
+        <h2 class="section__title" id="benefits-title">Compra con criterio, no solo catálogo.</h2>
+      </div>
+      <p class="benefits__lead">
+        No solo vendemos máquinas: le ayudamos a elegir la indicada para su taller y seguimos a su
+        lado después de la compra.
+      </p>
     </header>
 
     <ul class="benefits__list">
       @for (item of items; track item.title; let i = $index) {
-        <li
-          class="benefits__item"
-          appReveal="rise"
-          [revealDelay]="140 + i * 140"
-          [appParallax]="-0.03 * i"
-          [parallaxMax]="44"
-        >
-          <span class="benefits__index">0{{ i + 1 }}</span>
+        <li class="benefits__card" appReveal="rise" [revealDelay]="120 + i * 120">
+          <span class="benefits__index" aria-hidden="true">0{{ i + 1 }}</span>
+          <span class="benefits__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              @switch (item.icon) {
+                @case ('advice') {
+                  <path
+                    d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-4.5 3.5V17H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"
+                  />
+                  <path d="M7.5 9.5h9M7.5 12.5h6" />
+                }
+                @case ('machine') {
+                  <rect x="2.5" y="16" width="19" height="3.5" rx="1" />
+                  <path d="M6 11V7.5A1.5 1.5 0 0 1 7.5 6h10A1.5 1.5 0 0 1 19 7.5V16" />
+                  <path d="M7.5 11v3.2M5 11h5" />
+                  <circle cx="15.5" cy="10" r="1.2" />
+                }
+                @case ('support') {
+                  <path d="M4.5 13.5V12a7.5 7.5 0 0 1 15 0v1.5" />
+                  <rect x="3" y="13" width="4" height="6" rx="1.5" />
+                  <rect x="17" y="13" width="4" height="6" rx="1.5" />
+                  <path d="M19 19c0 1.6-1.6 2.5-4.5 2.5H13" />
+                }
+              }
+            </svg>
+          </span>
           <h3 class="benefits__name">{{ item.title }}</h3>
           <p class="benefits__text">{{ item.text }}</p>
         </li>
       }
     </ul>
+
+    <div class="benefits__cta" appReveal="rise" [revealDelay]="200">
+      <div class="benefits__cta-copy">
+        <h3 class="benefits__cta-title">¿No sabe qué máquina necesita?</h3>
+        <p class="benefits__cta-text">
+          Cuéntenos qué prendas hace y le recomendamos la máquina ideal, sin compromiso.
+        </p>
+      </div>
+      <div class="benefits__cta-actions">
+        <a class="btn btn--primary" [href]="whatsappUrl" target="_blank" rel="noopener noreferrer">
+          Hablar con un asesor
+        </a>
+        <a class="btn benefits__cta-ghost" routerLink="/catalogo">Ver catálogo</a>
+      </div>
+    </div>
   </div>
 </section>

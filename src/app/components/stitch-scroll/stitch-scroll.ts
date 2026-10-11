@@ -18,7 +18,7 @@ export class StitchScroll {
     afterNextRender(() => {
       const host = this.element.nativeElement as HTMLElement;
       const track = host.querySelector('.stitch__track') as SVGPathElement | null;
-      const mask = host.querySelector('.stitch__mask') as SVGPathElement | null;
+      const clip = host.querySelector('.stitch__clip') as SVGRectElement | null;
       let frame = 0;
       let pathLength = 0;
       let stitchCount = 32;
@@ -32,12 +32,6 @@ export class StitchScroll {
         const svgWidth = track.ownerSVGElement?.getBoundingClientRect().width ?? VIEW_W;
         const renderedLength = pathLength * (svgWidth / VIEW_W);
         stitchCount = Math.max(18, Math.round(renderedLength / DASH_PERIOD));
-
-        if (mask && pathLength > 0) {
-          // Real length (not pathLength=1) so reveal cannot invert or go stale in CSS calc.
-          mask.style.strokeDasharray = `${pathLength}`;
-          mask.style.strokeDashoffset = `${pathLength}`;
-        }
       };
 
       const pointOnPath = (t: number) => {
@@ -45,7 +39,7 @@ export class StitchScroll {
         if (track && pathLength > 0) {
           return track.getPointAtLength(clamped * pathLength);
         }
-        return { x: 60 + clamped * 1080, y: 150 };
+        return { x: 100 + clamped * 1000, y: 150 };
       };
 
       const update = () => {
@@ -68,9 +62,8 @@ export class StitchScroll {
         const needleBob = sewing ? contact * 9 : 0;
         const tipFlash = sewing ? contact : 0;
 
-        if (mask && pathLength > 0) {
-          mask.style.strokeDashoffset = `${pathLength * (1 - sew)}`;
-        }
+        // The seam only moves left-to-right, so clipping by x reveals exactly up to the needle.
+        clip?.setAttribute('width', sew > 0 ? pt.x.toFixed(2) : '0');
 
         host.style.setProperty('--stitch-progress', sew.toFixed(4));
         host.style.setProperty('--open-progress', openEase.toFixed(4));

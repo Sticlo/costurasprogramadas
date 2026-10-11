@@ -1,0 +1,48 @@
+# Costuras Programadas
+
+> Tienda de máquinas de coser industriales y familiares en Bogotá, Colombia (barrio La Alquería). Vende planas, fileteadoras, collarines, recubridoras, cortadoras verticales, botonadoras y bordadoras de marcas como JACK, KANSEW, UNION, PEGASUS, KINGTER, ANYSEW y Brother. Ofrece asesoría para elegir máquina, servicio técnico, mantenimiento, repuestos y envíos a todo Colombia.
+
+- Dirección: Barrio La Alquería, Bogotá, Colombia
+- WhatsApp y teléfono: +57 319 339 9817
+- Correo: costurasprogramadas4@gmail.com
+- Horario: Lunes a sábado · 8:00 a. m. – 6:00 p. m.
+- Precios: se cotizan por WhatsApp; no están publicados en la web.
+
+## Páginas principales
+
+- [Inicio](https://costurasprogramadas.web.app/): presentación de la tienda y productos destacados.
+- [Catálogo](https://costurasprogramadas.web.app/catalogo): todas las máquinas disponibles.
+- [Soluciones a fallas de máquinas de coser](https://costurasprogramadas.web.app/soluciones): guías paso a paso para los problemas más comunes.
+- [Nosotros](https://costurasprogramadas.web.app/nosotros): historia, misión y equipo.
+- [Contacto](https://costurasprogramadas.web.app/contacto): ubicación, horario y cotizaciones.
+
+## Problemas frecuentes y soluciones
+
+- [¿Por qué mi máquina de coser no traspasa el dril o la tela gruesa?](https://costurasprogramadas.web.app/soluciones/maquina-no-traspasa-dril-tela-gruesa): Casi siempre es la aguja: para dril y jean necesita una aguja nueva tipo jean, calibre 100/16 o 110/18, y un hilo más grueso. Si con la aguja correcta la máquina se sigue frenando en las costuras dobles, no tiene la fuerza para ese material: una máquina familiar no está hecha para coser dril todos los días, una plana industrial sí.
+- [¿Por qué mi máquina de coser salta puntadas?](https://costurasprogramadas.web.app/soluciones/maquina-salta-puntadas): La causa más común es la aguja: gastada, doblada, mal puesta o del tipo equivocado para la tela. En licra y tejido de punto se usa aguja de punta bola. Si con una aguja nueva y bien puesta sigue saltando, la máquina probablemente está descalibrada y necesita servicio técnico.
+- [¿Por qué se revienta el hilo de la máquina de coser?](https://costurasprogramadas.web.app/soluciones/se-revienta-el-hilo-maquina-de-coser): Normalmente es la tensión superior demasiado alta, un enhebrado incorrecto o un hilo de mala calidad. También pasa cuando la aguja es muy delgada para el hilo o tiene una rebaba. Reenhebre con el prensatelas arriba, baje un poco la tensión y cambie la aguja.
+- [¿Por qué mi máquina hace nudos de hilo por debajo de la tela?](https://costurasprogramadas.web.app/soluciones/maquina-hace-nudos-hilo-debajo-de-la-tela): Aunque el enredo aparece abajo, casi siempre el problema está arriba: el hilo superior no quedó dentro del disco de tensión. Esto pasa cuando se enhebra con el prensatelas abajo. Suba el prensatelas, enhebre de nuevo y el problema suele desaparecer.
+- [¿Por qué se parte la aguja de la máquina de coser?](https://costurasprogramadas.web.app/soluciones/se-parte-la-aguja-maquina-de-coser): La aguja se parte cuando es demasiado delgada para la tela, cuando se jala la tela mientras cose (la aguja se dobla y golpea la placa) o cuando la aguja o el prensatelas están mal puestos. Use el calibre correcto y deje que la máquina arrastre la tela sola.
+- [¿Por qué mi fileteadora no corta bien o deja hilachas?](https://costurasprogramadas.web.app/soluciones/fileteadora-no-corta-bien): Lo más común es que las cuchillas estén desafiladas o desalineadas; la cuchilla inferior se gasta con el uso y se debe cambiar. Si el corte está bien pero el filete queda flojo o con bucles, el problema son las tensiones de los hilos de los lazadores.
+- [¿Por qué la costura queda fruncida o arrugada?](https://costurasprogramadas.web.app/soluciones/costura-queda-fruncida-o-arrugada): Suele ser la tensión del hilo demasiado alta, una puntada muy corta o una aguja e hilo muy gruesos para una tela delgada. Baje un poco la tensión, alargue la puntada y use una aguja fina, 70/10 u 80/12.
+- [¿Por qué mi máquina de coser no arrastra la tela?](https://costurasprogramadas.web.app/soluciones/maquina-no-arrastra-la-tela): Revise tres cosas: que el prensatelas esté abajo, que el largo de puntada no esté en cero y que los dientes no estén bajados (modo zurcido o bordado libre). Si todo está bien, limpie la pelusa acumulada entre los dientes.
+- [¿Por qué mi máquina de coser está dura o hace ruido?](https://costurasprogramadas.web.app/soluciones/maquina-dura-pesada-o-ruidosa): Casi siempre es falta de limpieza y lubricación: pelusa acumulada y aceite viejo o seco. Una máquina que estuvo guardada mucho tiempo suele quedar dura. Límpiela, aceítela solo con aceite para máquinas de coser y, si sigue dura o suena a golpes, llévela a mantenimiento.
+- [¿Qué máquina de coser comprar para empezar un taller de confección?](https://costurasprogramadas.web.app/soluciones/que-maquina-comprar-para-taller-de-confeccion): Depende de lo que va a coser. Para la mayoría de talleres de ropa se empieza con una plana industrial para las costuras rectas y una fileteadora para las orillas. Si trabaja camisetas, licras o ropa deportiva, sume una collarín o una recubridora. Para arreglos o emprender en casa, una máquina familiar es suficiente.
+- [¿Dónde reparar una máquina de coser en Bogotá?](https://costurasprogramadas.web.app/soluciones/donde-arreglar-maquina-de-coser-en-bogota): En Costuras Programadas, en el barrio La Alquería de Bogotá, hacemos servicio técnico y mantenimiento de máquinas de coser, con repuestos disponibles. Escríbanos por WhatsApp con un video corto de la falla y la marca de su máquina, y le decimos cómo resolverla.
+
+## Catálogo
+
+- [Plana mecatrónica KS 8800D H](https://costurasprogramadas.web.app/catalogo/plana-mecatronica-ks8800dh) — marca KANSEW: Kansew Special para costura pesada: potencia, panel digital y ritmo de taller.
+- [Collarín mecatrónica UNION UN-500D-02BB](https://costurasprogramadas.web.app/catalogo/collarin-mecatronica-union-un500d-02bb) — marca UNION: Precisión y tecnología para acabados profesionales en tejido de punto.
+- [Plana electrónica JACK A4C](https://costurasprogramadas.web.app/catalogo/plana-electronica-jack-a4c) — marca JACK: Tecnología electrónica, corte de hilo automático y bajo ruido para todo tipo de tela.
+- [Bordadora industrial ANYSEW 2 cabezas](https://costurasprogramadas.web.app/catalogo/bordadora-industrial-anysew-2-cabezas) — marca ANYSEW: 15 agujas por cabezote y área de bordado de 50 × 90 cm para duplicar su producción.
+- [Fileteadora KANSEW Special KS504](https://costurasprogramadas.web.app/catalogo/fileteadora-kansew-ks504) — marca KANSEW: Fileteadora de 4 hilos: precisión que hace la diferencia en cada acabado.
+- [Cortadora vertical JACK](https://costurasprogramadas.web.app/catalogo/cortadora-vertical-jack) — marca JACK: Corte rápido y limpio de varias capas de tela con motor de alta potencia.
+- [Cortadora vertical KANSEW](https://costurasprogramadas.web.app/catalogo/cortadora-vertical-kansew) — marca KANSEW: Corte estable y preciso con motor de alto rendimiento y control digital.
+- [Recubridora plana PEGASUS W600 PC](https://costurasprogramadas.web.app/catalogo/recubridora-plana-pegasus-w600pc) — marca PEGASUS: Calidad japonesa en cada puntada, ideal para ropa deportiva y lencería.
+- [Fileteadora mecatrónica UNION UNA-5 5 hilos](https://costurasprogramadas.web.app/catalogo/fileteadora-mecatronica-union-una-5) — marca UNION: Sistema mecatrónico de 5 hilos para acabados profesionales con bajo ruido.
+- [Fileteadora electrónica JACK C5C-5-03](https://costurasprogramadas.web.app/catalogo/fileteadora-electronica-jack-c5c-5-03) — marca JACK: 5 hilos, corta hilo automático y posicionador de aguja para producción.
+- [Collarín mecatrónica KINGTER KT500-02-DDI](https://costurasprogramadas.web.app/catalogo/collarin-mecatronica-kingter-kt500-02-ddi) — marca KINGTER: Puntadas firmes y uniformes para ropa deportiva, interior y en general.
+- [Botonadora mecatrónica JACK JK-T1377-G](https://costurasprogramadas.web.app/catalogo/botonadora-mecatronica-jack-jk-t1377-g) — marca JACK: Pega botones con precisión, corte de hilo automático y alta velocidad.
+- [Máquina de coser familiar UNION UN-350](https://costurasprogramadas.web.app/catalogo/maquina-familiar-union-un-350) — marca UNION: 12 tipos de puntadas, fácil de usar e ideal para principiantes.
+- [Máquina de coser familiar Brother SM 1400](https://costurasprogramadas.web.app/catalogo/maquina-familiar-brother-sm-1400) — marca Brother: 14 puntadas, ojal automático en 4 pasos, liviana y portátil.

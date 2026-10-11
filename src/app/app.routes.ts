@@ -14,6 +14,15 @@ export const routes: Routes = [
       { path: '', component: Home },
       { path: 'catalogo', component: Catalog },
       { path: 'catalogo/:slug', component: ProductDetail },
+      {
+        path: 'soluciones',
+        loadComponent: () => import('./pages/solutions/solutions').then((m) => m.Solutions),
+      },
+      {
+        path: 'soluciones/:slug',
+        loadComponent: () =>
+          import('./pages/solution-detail/solution-detail').then((m) => m.SolutionDetail),
+      },
       { path: 'nosotros', component: Nosotros },
       { path: 'contacto', component: Contact },
       { path: '**', redirectTo: '' },

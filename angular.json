@@ -66,7 +66,8 @@
               "buildTarget": "costurasprogramadas:build:production"
             },
             "development": {
-              "buildTarget": "costurasprogramadas:build:development"
+              "buildTarget": "costurasprogramadas:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

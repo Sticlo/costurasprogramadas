@@ -1,0 +1,296 @@
+{
+  "contact": {
+    "phone": "319 339 9817",
+    "email": "costurasprogramadas4@gmail.com",
+    "address": "Barrio La Alquería, Bogotá, Colombia",
+    "hours": "Lunes a sábado · 8:00 a. m. – 6:00 p. m."
+  },
+  "products": [
+    {
+      "slug": "plana-mecatronica-ks8800dh",
+      "name": "Plana mecatrónica KS 8800D H",
+      "category": "Maquinaria",
+      "summary": "Kansew Special para costura pesada: potencia, panel digital y ritmo de taller.",
+      "description": "Plana mecatrónica Kansew Special KS 8800D H pensada para materiales medios y pesados. Motor direct drive, panel digital integrado y bajo consumo para producción diaria en taller.",
+      "price": "Consultar precio",
+      "specs": [
+        "Motor direct drive",
+        "Panel digital integrado",
+        "Bajo consumo de energía",
+        "Alta velocidad",
+        "Ideal para costura pesada"
+      ]
+    },
+    {
+      "slug": "collarin-mecatronica-union-un500d-02bb",
+      "name": "Collarín mecatrónica UNION UN-500D-02BB",
+      "category": "Maquinaria",
+      "summary": "Precisión y tecnología para acabados profesionales en tejido de punto.",
+      "description": "Collarín mecatrónico UNION UN-500D-02BB con motor servo direct drive, alta velocidad y costuras uniformes. Ideal para la confección de camisetas, ropa deportiva, ropa interior y prendas en tejido de punto.",
+      "price": "Consultar precio",
+      "specs": [
+        "Motor servo direct drive",
+        "Alta velocidad",
+        "Costuras uniformes",
+        "Bajo consumo de energía",
+        "Construcción industrial para trabajo continuo"
+      ]
+    },
+    {
+      "slug": "plana-electronica-jack-a4c",
+      "name": "Plana electrónica JACK A4C",
+      "category": "Maquinaria",
+      "summary": "Tecnología electrónica, corte de hilo automático y bajo ruido para todo tipo de tela.",
+      "description": "Plana electrónica JACK A4C con control preciso y estable, alta velocidad y bajo nivel de ruido. Panel digital intuitivo, corte de hilo automático, posicionador de aguja, prensatelas automático, luz LED y lubricación automática. Trabaja telas livianas, medianas y pesadas con puntadas precisas y uniformes.",
+      "price": "Consultar precio",
+      "specs": [
+        "Tecnología electrónica",
+        "Corte de hilo automático",
+        "Posicionador de aguja",
+        "Prensatelas automático",
+        "Panel digital intuitivo",
+        "Bajo nivel de ruido",
+        "Luz LED",
+        "Lubricación automática",
+        "Para telas livianas, medianas y pesadas"
+      ]
+    },
+    {
+      "slug": "bordadora-industrial-anysew-2-cabezas",
+      "name": "Bordadora industrial ANYSEW 2 cabezas",
+      "category": "Maquinaria",
+      "summary": "15 agujas por cabezote y área de bordado de 50 × 90 cm para duplicar su producción.",
+      "description": "Bordadora industrial ANYSEW de 2 cabezas con 15 agujas por cabezote y cambios de color automáticos. Pantalla táctil intuitiva, área de bordado de 50 × 90 cm, hasta 1.200 puntadas por minuto, corte de hilo automático y detector de hilo superior e inferior. Ideal para gorras, uniformes, camisetas, toallas, chaquetas y más.",
+      "price": "Consultar precio",
+      "specs": [
+        "2 cabezas · 15 agujas por cabezote",
+        "Área de bordado de 50 × 90 cm",
+        "Hasta 1.200 puntadas por minuto",
+        "Pantalla táctil intuitiva",
+        "Corte de hilo automático",
+        "Detector de hilo superior e inferior",
+        "Compatible con DST, DSB, EXP, PES y más",
+        "Estructura robusta para trabajo continuo"
+      ]
+    },
+    {
+      "slug": "fileteadora-kansew-ks504",
+      "name": "Fileteadora KANSEW Special KS504",
+      "category": "Maquinaria",
+      "summary": "Fileteadora de 4 hilos: precisión que hace la diferencia en cada acabado.",
+      "description": "Fileteadora KANSEW Special KS504 de 4 hilos para acabados perfectos en todo tipo de telas. Alta velocidad para trabajar con eficiencia, máxima versatilidad y resistencia en cada costura, y un diseño robusto y moderno que garantiza durabilidad y rendimiento. Con repuestos y servicio técnico disponibles.",
+      "price": "Consultar precio",
+      "specs": [
+        "4 hilos: versatilidad y resistencia",
+        "Costuras profesionales en todo tipo de telas",
+        "Alta velocidad y productividad",
+        "Diseño robusto y moderno",
+        "Repuestos y servicio técnico"
+      ]
+    },
+    {
+      "slug": "cortadora-vertical-jack",
+      "name": "Cortadora vertical JACK",
+      "category": "Maquinaria",
+      "summary": "Corte rápido y limpio de varias capas de tela con motor de alta potencia.",
+      "description": "Cortadora vertical JACK con motor de alta potencia y cuchilla de acero afilada para un corte rápido, preciso y limpio en todo tipo de telas. Corta varias capas a la vez, con diseño robusto, estable y ergonómico, protecciones integradas para su seguridad y fácil mantenimiento. Ideal para talleres de confección, tapicería e industria textil.",
+      "price": "Consultar precio",
+      "specs": [
+        "Motor de alta potencia",
+        "Cuchilla de acero afilada",
+        "Corta varias capas de tela",
+        "Diseño robusto y estable",
+        "Protecciones de seguridad integradas",
+        "Fácil mantenimiento y repuestos disponibles"
+      ]
+    },
+    {
+      "slug": "cortadora-vertical-kansew",
+      "name": "Cortadora vertical KANSEW",
+      "category": "Maquinaria",
+      "summary": "Corte estable y preciso con motor de alto rendimiento y control digital.",
+      "description": "Cortadora vertical KANSEW con motor de alto rendimiento, cuchilla de larga duración y caja de control digital. Ofrece un corte estable y preciso en varias capas de tela, con calidad y resistencia profesional, diseño ergonómico y protecciones integradas. Ideal para talleres de confección, tapicería e industria textil.",
+      "price": "Consultar precio",
+      "specs": [
+        "Motor de alto rendimiento",
+        "Cuchilla de larga duración",
+        "Control digital",
+        "Corta varias capas de tela",
+        "Protecciones de seguridad integradas",
+        "Fácil mantenimiento y repuestos disponibles"
+      ]
+    },
+    {
+      "slug": "recubridora-plana-pegasus-w600pc",
+      "name": "Recubridora plana PEGASUS W600 PC",
+      "category": "Maquinaria",
+      "summary": "Calidad japonesa en cada puntada, ideal para ropa deportiva y lencería.",
+      "description": "Máquina recubridora plana PEGASUS W600 PC con puntada recubridora de alta calidad y acabados profesionales. Alta velocidad y rendimiento superior, diseño robusto y duradero, y la confianza de la calidad japonesa. Ideal para prendas deportivas, lencería y ropa en general. Con garantía y soporte especializado.",
+      "price": "Consultar precio",
+      "specs": [
+        "Puntada recubridora de alta calidad",
+        "Ideal para ropa deportiva y lencería",
+        "Alta velocidad y rendimiento superior",
+        "Diseño robusto y duradero",
+        "Calidad japonesa",
+        "Garantía y soporte especializado"
+      ]
+    },
+    {
+      "slug": "fileteadora-mecatronica-union-una-5",
+      "name": "Fileteadora mecatrónica UNION UNA-5 5 hilos",
+      "category": "Maquinaria",
+      "summary": "Sistema mecatrónico de 5 hilos para acabados profesionales con bajo ruido.",
+      "description": "Fileteadora mecatrónica UNION UNA-5 con sistema de alta precisión y 5 hilos para acabados profesionales. Alta velocidad y rendimiento superior, bajo nivel de ruido y vibración, y puntadas limpias, uniformes y resistentes. Ideal para telas livianas y medianas, de fácil ajuste y mantenimiento. Cada puntada, un acabado perfecto.",
+      "price": "Consultar precio",
+      "specs": [
+        "Sistema mecatrónico de alta precisión",
+        "5 hilos para acabados profesionales",
+        "Alta velocidad y rendimiento superior",
+        "Bajo nivel de ruido y vibración",
+        "Ideal para telas livianas y medianas",
+        "Fácil ajuste y mantenimiento",
+        "Durabilidad y confianza garantizada"
+      ]
+    },
+    {
+      "slug": "fileteadora-electronica-jack-c5c-5-03",
+      "name": "Fileteadora electrónica JACK C5C-5-03",
+      "category": "Maquinaria",
+      "summary": "5 hilos, corta hilo automático y posicionador de aguja para producción.",
+      "description": "Fileteadora electrónica JACK C5C-5-03 con sistema electrónico de alta precisión y 5 hilos para acabados profesionales. Corta hilo automático, posicionador de aguja y sistema de arranque suave. Alta velocidad, bajo nivel de ruido y vibración, y estructura robusta y duradera. Ideal para talleres y producción.",
+      "price": "Consultar precio",
+      "specs": [
+        "Sistema electrónico de alta precisión",
+        "5 hilos para acabados profesionales",
+        "Corta hilo automático",
+        "Posicionador de aguja",
+        "Sistema de arranque suave",
+        "Bajo nivel de ruido y vibración",
+        "Estructura robusta y duradera"
+      ]
+    },
+    {
+      "slug": "collarin-mecatronica-kingter-kt500-02-ddi",
+      "name": "Collarín mecatrónica KINGTER KT500-02-DDI",
+      "category": "Maquinaria",
+      "summary": "Puntadas firmes y uniformes para ropa deportiva, interior y en general.",
+      "description": "Collarín mecatrónica KINGTER KT500-02-DDI con sistema mecatrónico de alta precisión. Puntadas firmes y uniformes, alta velocidad y rendimiento superior, y estructura robusta y duradera. Ideal para prendas deportivas, ropa interior y ropa en general. Con garantía, soporte especializado, refacciones y servicio técnico.",
+      "price": "Consultar precio",
+      "specs": [
+        "Sistema mecatrónico de alta precisión",
+        "Puntadas firmes y uniformes",
+        "Alta velocidad y rendimiento superior",
+        "Estructura robusta y duradera",
+        "Ideal para ropa deportiva e interior",
+        "Garantía, refacciones y servicio técnico"
+      ]
+    },
+    {
+      "slug": "botonadora-mecatronica-jack-jk-t1377-g",
+      "name": "Botonadora mecatrónica JACK JK-T1377-G",
+      "category": "Maquinaria",
+      "summary": "Pega botones con precisión, corte de hilo automático y alta velocidad.",
+      "description": "Botonadora mecatrónica JACK JK-T1377-G con tecnología de alta precisión y compatible con una amplia gama de botones. Alta velocidad y mayor eficiencia, corte de hilo automático, posicionamiento preciso y estable, y estructura robusta y duradera. Para todo tipo de prendas, ideal para producción industrial y de fácil operación y mantenimiento.",
+      "price": "Consultar precio",
+      "specs": [
+        "Tecnología mecatrónica de alta precisión",
+        "Amplia gama de botones compatibles",
+        "Alta velocidad y mayor eficiencia",
+        "Corte de hilo automático",
+        "Posicionamiento preciso y estable",
+        "Estructura robusta y duradera"
+      ]
+    },
+    {
+      "slug": "maquina-familiar-union-un-350",
+      "name": "Máquina de coser familiar UNION UN-350",
+      "category": "Maquinaria",
+      "summary": "12 tipos de puntadas, fácil de usar e ideal para principiantes.",
+      "description": "Máquina de coser familiar UNION UN-350 con 12 tipos de puntadas decorativas y funcionales, selección de puntada ajustable, enhebrado fácil y rápido y luz LED integrada. Diseño compacto, moderno y resistente. Ideal para ropa, arreglos, manualidades y más. La compañera perfecta para cada proyecto.",
+      "price": "Consultar precio",
+      "specs": [
+        "12 tipos de puntadas",
+        "Selección de puntada ajustable",
+        "Enhebrado fácil y rápido",
+        "Luz LED integrada",
+        "Diseño compacto, moderno y resistente",
+        "Ideal para principiantes"
+      ]
+    },
+    {
+      "slug": "maquina-familiar-brother-sm-1400",
+      "name": "Máquina de coser familiar Brother SM 1400",
+      "category": "Maquinaria",
+      "summary": "14 puntadas, ojal automático en 4 pasos, liviana y portátil.",
+      "description": "Máquina de coser familiar Brother SM 1400 con 14 puntadas incorporadas, ojal automático en 4 pasos y dial selector de puntadas fácil de usar. Enhebrado fácil y rápido, sistema de bobinado automático, luz LED para mejor visibilidad y accesorios incluidos. Liviana y portátil, ideal para ropa, arreglos, manualidades y más.",
+      "price": "Consultar precio",
+      "specs": [
+        "14 puntadas incorporadas",
+        "Ojal automático en 4 pasos",
+        "Dial selector de puntadas",
+        "Bobinado automático",
+        "Luz LED para mejor visibilidad",
+        "Liviana y portátil",
+        "Accesorios incluidos"
+      ]
+    }
+  ],
+  "solutions": [
+    {
+      "slug": "maquina-no-traspasa-dril-tela-gruesa",
+      "problem": "Mi máquina de coser no traspasa el dril o la tela gruesa",
+      "answer": "Casi siempre es la aguja: para dril y jean necesita una aguja nueva tipo jean, calibre 100/16 o 110/18, y un hilo más grueso. Si con la aguja correcta la máquina se sigue frenando en las costuras dobles, no tiene la fuerza para ese material: una máquina familiar no está hecha para coser dril todos los días, una plana industrial sí."
+    },
+    {
+      "slug": "maquina-salta-puntadas",
+      "problem": "Mi máquina de coser salta puntadas",
+      "answer": "La causa más común es la aguja: gastada, doblada, mal puesta o del tipo equivocado para la tela. En licra y tejido de punto se usa aguja de punta bola. Si con una aguja nueva y bien puesta sigue saltando, la máquina probablemente está descalibrada y necesita servicio técnico."
+    },
+    {
+      "slug": "se-revienta-el-hilo-maquina-de-coser",
+      "problem": "Se me revienta el hilo de la máquina de coser",
+      "answer": "Normalmente es la tensión superior demasiado alta, un enhebrado incorrecto o un hilo de mala calidad. También pasa cuando la aguja es muy delgada para el hilo o tiene una rebaba. Reenhebre con el prensatelas arriba, baje un poco la tensión y cambie la aguja."
+    },
+    {
+      "slug": "maquina-hace-nudos-hilo-debajo-de-la-tela",
+      "problem": "Mi máquina hace nudos o un nido de hilo por debajo de la tela",
+      "answer": "Aunque el enredo aparece abajo, casi siempre el problema está arriba: el hilo superior no quedó dentro del disco de tensión. Esto pasa cuando se enhebra con el prensatelas abajo. Suba el prensatelas, enhebre de nuevo y el problema suele desaparecer."
+    },
+    {
+      "slug": "se-parte-la-aguja-maquina-de-coser",
+      "problem": "Se me parte la aguja de la máquina de coser",
+      "answer": "La aguja se parte cuando es demasiado delgada para la tela, cuando se jala la tela mientras cose (la aguja se dobla y golpea la placa) o cuando la aguja o el prensatelas están mal puestos. Use el calibre correcto y deje que la máquina arrastre la tela sola."
+    },
+    {
+      "slug": "fileteadora-no-corta-bien",
+      "problem": "Mi fileteadora no corta bien o deja la orilla con hilachas",
+      "answer": "Lo más común es que las cuchillas estén desafiladas o desalineadas; la cuchilla inferior se gasta con el uso y se debe cambiar. Si el corte está bien pero el filete queda flojo o con bucles, el problema son las tensiones de los hilos de los lazadores."
+    },
+    {
+      "slug": "costura-queda-fruncida-o-arrugada",
+      "problem": "La costura me queda fruncida o arrugada",
+      "answer": "Suele ser la tensión del hilo demasiado alta, una puntada muy corta o una aguja e hilo muy gruesos para una tela delgada. Baje un poco la tensión, alargue la puntada y use una aguja fina, 70/10 u 80/12."
+    },
+    {
+      "slug": "maquina-no-arrastra-la-tela",
+      "problem": "Mi máquina de coser no arrastra ni avanza la tela",
+      "answer": "Revise tres cosas: que el prensatelas esté abajo, que el largo de puntada no esté en cero y que los dientes no estén bajados (modo zurcido o bordado libre). Si todo está bien, limpie la pelusa acumulada entre los dientes."
+    },
+    {
+      "slug": "maquina-dura-pesada-o-ruidosa",
+      "problem": "Mi máquina de coser está dura, pesada o hace mucho ruido",
+      "answer": "Casi siempre es falta de limpieza y lubricación: pelusa acumulada y aceite viejo o seco. Una máquina que estuvo guardada mucho tiempo suele quedar dura. Límpiela, aceítela solo con aceite para máquinas de coser y, si sigue dura o suena a golpes, llévela a mantenimiento."
+    },
+    {
+      "slug": "que-maquina-comprar-para-taller-de-confeccion",
+      "problem": "No sé qué máquina comprar para empezar mi taller de confección",
+      "answer": "Depende de lo que va a coser. Para la mayoría de talleres de ropa se empieza con una plana industrial para las costuras rectas y una fileteadora para las orillas. Si trabaja camisetas, licras o ropa deportiva, sume una collarín o una recubridora. Para arreglos o emprender en casa, una máquina familiar es suficiente."
+    },
+    {
+      "slug": "donde-arreglar-maquina-de-coser-en-bogota",
+      "problem": "Mi máquina de coser está fallando y no sé dónde repararla en Bogotá",
+      "answer": "En Costuras Programadas, en el barrio La Alquería de Bogotá, hacemos servicio técnico y mantenimiento de máquinas de coser, con repuestos disponibles. Escríbanos por WhatsApp con un video corto de la falla y la marca de su máquina, y le decimos cómo resolverla."
+    }
+  ]
+}

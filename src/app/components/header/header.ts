@@ -27,6 +27,7 @@ export class Header {
   protected readonly links: { label: string; path: string }[] = [
     { label: 'Inicio', path: '/' },
     { label: 'Catálogo', path: '/catalogo' },
+    { label: 'Soluciones', path: '/soluciones' },
     { label: 'Nosotros', path: '/nosotros' },
     { label: 'Contacto', path: '/contacto' },
   ];

@@ -181,7 +181,7 @@
 
 .stitch__guide,
 .stitch__thread,
-.stitch__mask {
+.stitch__thread-glow {
   fill: none;
   vector-effect: non-scaling-stroke;
 }
@@ -191,22 +191,18 @@
   stroke-width: 1;
 }
 
+.stitch__thread-glow {
+  stroke: rgba(213, 180, 126, 0.28);
+  stroke-width: 7;
+  stroke-linecap: round;
+  stroke-dasharray: 12 10;
+}
+
 .stitch__thread {
   stroke: #d5b47e;
   stroke-width: 3.2;
   stroke-linecap: round;
   stroke-dasharray: 12 10;
-  filter: drop-shadow(0 1px 2px rgba(213, 180, 126, 0.42));
-}
-
-.stitch__mask {
-  fill: none;
-  stroke: #fff;
-  stroke-width: 22;
-  stroke-linecap: round;
-  /* Hidden until JS measures path length and drives the reveal. */
-  stroke-dasharray: 2400;
-  stroke-dashoffset: 2400;
 }
 
 .stitch__needle {
@@ -446,7 +442,7 @@
   }
 
   .stitch__fabric {
-    inset: 42% -32% auto;
+    inset: 42% 0 auto;
     height: 12rem;
   }
 

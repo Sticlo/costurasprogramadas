@@ -21,7 +21,7 @@
       <span class="section__label stitch-draw">Destacados</span>
       <h2 class="section__title" id="featured-title">Productos para su taller.</h2>
       <p class="section__lead">
-        Máquinas industriales y herramientas de corte listas para el trabajo diario.
+        Planas, collarines, fileteadoras y bordadoras JACK, KANSEW y UNION para el trabajo diario.
       </p>
     </header>
 
@@ -35,7 +35,7 @@
           [parallaxMax]="48"
         >
           <a class="featured__link" [routerLink]="['/catalogo', product.slug]">
-            <div class="featured__media parallax-frame" [appExpandImage]="10">
+            <div class="featured__media" [appExpandImage]="10" [expandZoom]="1">
               <img
                 [src]="product.images[0]"
                 [alt]="product.name"

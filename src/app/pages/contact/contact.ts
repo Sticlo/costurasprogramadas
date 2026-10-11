@@ -32,11 +32,17 @@ export class Contact implements OnInit {
 
   ngOnInit(): void {
     this.seo.update({
-      title: 'Contacto y cotizaciones',
+      title: 'Contacto: tienda de máquinas de coser en La Alquería, Bogotá',
       description:
-        'Contacte a Costuras Programadas en La Alquería, Bogotá. WhatsApp 319 339 9817 para cotizar maquinaria y herramientas.',
+        'Visítenos en La Alquería, Bogotá, o escríbanos al WhatsApp 319 339 9817. Cotice máquinas de coser, repuestos y servicio técnico. Lunes a sábado, 8 a. m. a 6 p. m.',
       path: '/contacto',
     });
+    this.seo.setJsonLd(
+      this.seo.breadcrumbs([
+        { name: 'Inicio', path: '/' },
+        { name: 'Contacto', path: '/contacto' },
+      ]),
+    );
   }
 
   protected openQuote(): void {
